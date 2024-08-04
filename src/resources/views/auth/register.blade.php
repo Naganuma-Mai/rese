@@ -51,9 +51,5 @@
             <button class="form__button-submit" type="submit">登録</button>
         </div>
     </form>
-    <!-- <div class="login__button">
-        <p class="login__message">アカウントをお持ちの方はこちらから</p>
-        <a class="login__button-link" href="/login">ログイン</a>
-    </div> -->
 </div>
 @endsection
