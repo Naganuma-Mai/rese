@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-<div class="mypage__content">
-    <div class="mypage__heading">
+<div class="my-page__content">
+    <div class="my-page__heading">
         {{ Auth::user()->name }}さん
     </div>
-    <div class="mypage_inner">
+    <div class="my-page_inner">
         <div class="reservation__status">
             <h2>予約状況</h2>
             $reservation_count = 1;
