@@ -7,14 +7,15 @@
 @section('content')
 <div class="login__content">
     <div class="login-form__heading">
-        ログイン
+        Login
     </div>
     <form class="form" action="/login" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="email" name="email" placeholder="メールアドレス" value="{{ old('email') }}">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                 </div>
                 <div class="form__error">
                     @error('email')
@@ -26,7 +27,7 @@
         <div class="form__group">
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="password" name="password" placeholder="パスワード">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <div class="form__error">
                     @error('password')
@@ -39,9 +40,9 @@
             <button class="form__button-submit" type="submit">ログイン</button>
         </div>
     </form>
-    <div class="register__button">
+    <!-- <div class="register__button">
         <p class="register__message">アカウントをお持ちでない方はこちらから</p>
         <a class="register__button-link" href="/register">会員登録</a>
-    </div>
+    </div> -->
 </div>
 @endsection
