@@ -78,10 +78,59 @@
                         <!-- </div> -->
                     </form>
                     <i class="far fa-heart"></i>
+                    <!-- ログイン後 -->
+                    @if (Auth::check())
+                        <!-- お気に入りにしていないお店 -->
+                        @if (!$review->isLikedBy(Auth::user()))
+                            <span class="likes">
+                                <i class="fas fa-music like-toggle" data-shop-id="{{ $shop->id }}"></i>
+                            </span><!-- /.likes -->
+                        <!-- 既にお気に入りにしているお店 -->
+                        @else
+                            <span class="likes">
+                                <i class="fas fa-music heart like-toggle liked" data-shop-id="{{ $shop->id }}"></i>
+                            </span><!-- /.likes -->
+                        @endif
+                    <!-- ログイン前 -->
+                    @else
+                        <span class="likes">
+                            <i class="fas fa-music heart"></i>
+                        </span>
+                    @endif
                 </div>
             </div>
             @endforeach
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        let like = $('.like-toggle'); //like-toggleのついたiタグを取得し代入。
+        let like_shop_id; //変数を宣言（なんでここで？）
+        like.on('click', function () { //onはイベントハンドラー
+            let $this = $(this); //this=イベントの発火した要素＝iタグを代入
+            like_shop_id = $this.data('shop-id'); //iタグに仕込んだdata-shop-idの値を取得
+            //ajax処理スタート
+            $.ajax({
+                headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
+                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                },  //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+                url: '/like', //通信先アドレスで、このURLをあとでルートで設定します
+                method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+                data: { //サーバーに送信するデータ
+                    'shop_id': like_shop_id //お気に入りにしたお店のidを送る
+                },
+            })
+            //通信成功した時の処理
+            .done(function (data) {
+                $this.toggleClass('liked'); //likedクラスのON/OFF切り替え。
+            })
+            //通信失敗した時の処理
+            .fail(function () {
+                console.log('fail');
+            });
+        });
+    });
+</script>
 @endsection

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\LikeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ShopController::class, 'index']);
+Route::get('/shops/search', [ShopController::class, 'search']);
+Route::get('/detail/:shop_id', [ShopController::class, 'getDetail']);
+
+Route::post('/done', [ReservationController::class, 'store']);
+// Route::patch('/todos/update', [TodoController::class, 'update']);
+Route::delete('/delete', [ReservationController::class, 'destroy']);
+
+Route::get('/categories', [ReservationController::class, 'index']);
+
+Route::post('/like', [LikeController::class, 'like']);
+
+Route::get('/mypage', [UserController::class, 'index']);
