@@ -41,4 +41,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    // 多対多のリレーション
+    public function like_shops()
+    {
+        return $this->belongsToMany(Shop::class, 'likes', 'user_id', 'shop_id');
+    }
+
+    public function is_like($shop_id)
+    {
+        return $this->likes()->where('shop_id', $shop_id)->exists();
+    }
 }

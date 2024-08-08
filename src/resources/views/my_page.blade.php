@@ -12,11 +12,10 @@
     <div class="my-page_inner">
         <div class="reservation__content">
             <h2 class="reservation__heading">予約状況</h2>
-            $reservation_count = 1;
             @foreach ($reservations as $reservation)
             <div class="reservation-card">
                 <p class="reservation-card__title">
-                    予約{{ $reservation_count }}
+                    予約{{ $loop->iteration }}
                 </p>
                 <div class="reservation-card__table">
                     <table class="reservation-card__table-inner">
@@ -49,13 +48,12 @@
                     <button class="reservation-card__form-button" type="submit">×</button>
                 </form>
             </div>
-            $reservation_count = $reservation_count + 1;
             @endforeach
         </div>
 
         <div class="favorite-shops__content">
             <h2 class="favorite-shops__heading">お気に入り店舗</h2>
-            @foreach ($shops as $shop)
+            @foreach ($like_shops as $shop)
             <div class="shop-card">
                 <div class="shop-card__img">
                     <img src="{{ $shop->image }}" alt="">
@@ -81,7 +79,7 @@
                     <!-- ログイン後 -->
                     @if (Auth::check())
                         <!-- お気に入りにしていないお店 -->
-                        @if (!$review->isLikedBy(Auth::user()))
+                        @if (!Auth::user()->is_like($shop->id))
                             <span class="likes">
                                 <i class="fas fa-music like-toggle" data-shop-id="{{ $shop->id }}"></i>
                             </span><!-- /.likes -->
