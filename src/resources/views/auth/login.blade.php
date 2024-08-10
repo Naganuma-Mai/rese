@@ -13,6 +13,7 @@
         @csrf
         <div class="form__group">
             <div class="form__group-content">
+                <img src="{{ asset('images/email.png') }}" alt="">
                 <div class="form__input--text">
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
@@ -26,6 +27,7 @@
         </div>
         <div class="form__group">
             <div class="form__group-content">
+                <img src="{{ asset('images/password.png') }}" alt="">
                 <div class="form__input--text">
                     <input type="password" name="password" placeholder="Password">
                 </div>

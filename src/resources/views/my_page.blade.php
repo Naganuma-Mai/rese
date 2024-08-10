@@ -15,6 +15,7 @@
             <h2 class="reservation__heading">予約状況</h2>
             @foreach ($reservations as $reservation)
             <div class="reservation-card">
+                <img src="{{ asset('images/clock.png') }}" alt="">
                 <p class="reservation-card__title">
                     予約{{ $loop->iteration }}
                 </p>
@@ -79,13 +80,15 @@
                     <!-- お気に入りにしていないお店 -->
                     @if (!Auth::user()->is_like($shop->id))
                         <span class="likes">
-                            <i class="fa-solid fa-heart like-toggle" data-shop-id="{{ $shop->id }}"></i>
+                            <img class="like-toggle" data-shop-id="{{ $shop->id }}" src="{{ asset('images/heart.png') }}" alt="">
+                            <!-- <i class="fa-solid fa-heart like-toggle" data-shop-id="{{ $shop->id }}"></i> -->
                             <!-- <i class="fas like-toggle" data-shop-id="{{ $shop->id }}"></i> -->
                         </span><!-- /.likes -->
                     <!-- 既にお気に入りにしているお店 -->
                     @else
                         <span class="likes">
-                            <i class="fa-solid fa-heart like-toggle  liked" data-shop-id="{{ $shop->id }}"></i>
+                            <img class="like-toggle liked" data-shop-id="{{ $shop->id }}" src="{{ asset('images/heart.png') }}" alt="">
+                            <!-- <i class="fa-solid fa-heart like-toggle  liked" data-shop-id="{{ $shop->id }}"></i> -->
                             <!-- <i class="fas heart like-toggle liked" data-shop-id="{{ $shop->id }}"></i> -->
                         </span><!-- /.likes -->
                     @endif

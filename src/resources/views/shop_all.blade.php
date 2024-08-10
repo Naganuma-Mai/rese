@@ -21,6 +21,7 @@
                 <option value="{{ $genre->id }}">{{ $genre->name }}</option>
             @endforeach
         </select>
+        <img src="{{ asset('images/search.png') }}" alt="">
         <input class="search-form__item-input" type="text" name="keyword" placeholder="Search ..." value="{{ old('keyword') }}">
         <button class="search-form__button-submit" type="submit">検索</button>
     </div>
@@ -56,20 +57,23 @@
                     <!-- お気に入りにしていないお店 -->
                     @if (!Auth::user()->is_like($shop->id))
                         <span class="likes">
-                            <i class="fa-solid fa-heart like-toggle" data-shop-id="{{ $shop->id }}"></i>
+                            <img class="like-toggle" data-shop-id="{{ $shop->id }}" src="{{ asset('images/heart.png') }}" alt="">
+                            <!-- <i class="fa-solid fa-heart like-toggle" data-shop-id="{{ $shop->id }}"></i> -->
                             <!-- <i class="fas like-toggle" data-shop-id="{{ $shop->id }}"></i> -->
                         </span><!-- /.likes -->
                     <!-- 既にお気に入りにしているお店 -->
                     @else
                         <span class="likes">
-                            <i class="fa-solid fa-heart like-toggle  liked" data-shop-id="{{ $shop->id }}"></i>
+                            <img class="like-toggle liked" data-shop-id="{{ $shop->id }}" src="{{ asset('images/heart.png') }}" alt="">
+                            <!-- <i class="fa-solid fa-heart like-toggle  liked" data-shop-id="{{ $shop->id }}"></i> -->
                             <!-- <i class="fas heart like-toggle liked" data-shop-id="{{ $shop->id }}"></i> -->
                         </span><!-- /.likes -->
                     @endif
                 <!-- ログイン前 -->
                 @else
                     <span class="likes">
-                        <i class="fa-solid fa-heart"></i>
+                        <img src="{{ asset('images/heart.png') }}" alt="">
+                        <!-- <i class="fa-solid fa-heart"></i> -->
                     </span>
                 @endif
             </div>
