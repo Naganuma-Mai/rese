@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/my_page.css') }}">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('content')
@@ -75,25 +76,18 @@
                             <button class="shop-card__content-button" type="submit">詳しくみる</button>
                         <!-- </div> -->
                     </form>
-                    <i class="far fa-heart"></i>
-                    <!-- ログイン後 -->
-                    @if (Auth::check())
-                        <!-- お気に入りにしていないお店 -->
-                        @if (!Auth::user()->is_like($shop->id))
-                            <span class="likes">
-                                <i class="fas fa-music like-toggle" data-shop-id="{{ $shop->id }}"></i>
-                            </span><!-- /.likes -->
-                        <!-- 既にお気に入りにしているお店 -->
-                        @else
-                            <span class="likes">
-                                <i class="fas fa-music heart like-toggle liked" data-shop-id="{{ $shop->id }}"></i>
-                            </span><!-- /.likes -->
-                        @endif
-                    <!-- ログイン前 -->
+                    <!-- お気に入りにしていないお店 -->
+                    @if (!Auth::user()->is_like($shop->id))
+                        <span class="likes">
+                            <i class="fa-solid fa-heart like-toggle" data-shop-id="{{ $shop->id }}"></i>
+                            <!-- <i class="fas like-toggle" data-shop-id="{{ $shop->id }}"></i> -->
+                        </span><!-- /.likes -->
+                    <!-- 既にお気に入りにしているお店 -->
                     @else
                         <span class="likes">
-                            <i class="fas fa-music heart"></i>
-                        </span>
+                            <i class="fa-solid fa-heart like-toggle  liked" data-shop-id="{{ $shop->id }}"></i>
+                            <!-- <i class="fas heart like-toggle liked" data-shop-id="{{ $shop->id }}"></i> -->
+                        </span><!-- /.likes -->
                     @endif
                 </div>
             </div>
