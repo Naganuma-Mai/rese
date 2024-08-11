@@ -32,7 +32,7 @@
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             <div class="form__item">
-                <input class="form__item--input" type="date" name="date">
+                <input id="input_date" class="form__item--input" type="date" name="date">
                 <!-- <div class="form__error">
                     @error('gender')
                     {{ $message }}
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form__item">
-                <input class="form__item--input" type="time" name="time">
+                <input id="input_time" class="form__item--input" type="time" name="time">
                 <!-- <div class="form__error">
                     @error('detail')
                     {{ $message }}
@@ -50,9 +50,9 @@
             </div>
 
             <div class="form__item">
-                <select class="form__item--select" name="number">
-                    <option value="1" selected>1人</option>
-                    @for($i = 2; $i < 10; $i++)
+                <select id="select_number" class="form__item--select" name="number">
+                    <option value="" selected></option>
+                    @for($i = 1; $i < 101; $i++)
                         <option value="{{ $i }}" {{ old('number')==$i ? 'selected' : '' }}>{{
                         $i }}人</option>
                     @endfor
@@ -74,17 +74,17 @@
                     </tr>
                     <tr class="reservation-table__row">
                         <th class="reservation-table__header">Date</th>
-                        <td class="reservation-table__text">{{ $reservation->date }}
+                        <td id="date" class="reservation-table__text">
                         </td>
                     </tr>
                     <tr class="reservation-table__row">
                         <th class="reservation-table__header">Time</th>
-                        <td class="reservation-table__text">{{ $reservation->time }}
+                        <td id="time" class="reservation-table__text">
                         </td>
                     </tr>
                     <tr class="reservation-table__row">
                         <th class="reservation-table__header">Number</th>
-                        <td class="reservation-table__text">{{ $reservation->number }}人
+                        <td id="number" class="reservation-table__text">
                         </td>
                     </tr>
                 </table>
@@ -96,4 +96,39 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById("input_date").onchange = function() {
+        let date = document.getElementById("input_date").value;
+        document.getElementById("date").textContent = date;
+    }
+
+    document.getElementById("input_time").onchange = function() {
+        let time = document.getElementById("input_time").value;
+        document.getElementById("time").textContent = time;
+    }
+
+    document.getElementById("select_number").onchange = function() {
+        let number = document.getElementById("select_number").value;
+        document.getElementById("number").textContent = number + "人";
+    }
+</script>
+
+<!-- <script>
+    let element = document.getElementById( "input_date" ) ;
+    element.onchange = function(){
+        let date = this.value ;
+        document.getElementById("date").textContent = date;
+    }
+    let element = document.getElementById( "input_time" ) ;
+    element.onchange = function(){
+        let time = this.value ;
+        document.getElementById("time").textContent = time;
+    }
+    let element = document.getElementById( "select_number" ) ;
+    element.onchange = function(){
+        let number = this.value ;
+        document.getElementById("number").textContent = number + "人";
+    }
+</script> -->
 @endsection
