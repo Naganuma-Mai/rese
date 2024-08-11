@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,14 @@ use App\Http\Controllers\LikeController;
 |
 */
 
+Route::get('/', [ShopController::class, 'index']);
+Route::get('/shops/search', [ShopController::class, 'search']);
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
+
 Route::middleware('auth')->group(function () {
-    Route::get('/detail/:shop_id', [ShopController::class, 'getDetail']);
     Route::get('/mypage', [UserController::class, 'index']);
     Route::post('/like', [LikeController::class, 'like']);
     Route::post('/done', [ReservationController::class, 'store']);
     // Route::patch('/todos/update', [TodoController::class, 'update']);
     Route::delete('/delete', [ReservationController::class, 'destroy']);
 });
-
-Route::get('/', [ShopController::class, 'index']);
-Route::get('/shops/search', [ShopController::class, 'search']);

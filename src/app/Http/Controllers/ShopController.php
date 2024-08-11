@@ -28,9 +28,9 @@ class ShopController extends Controller
         return view('shop_all', compact('shops', 'areas', 'genres'));
     }
 
-    public function getDetail()
+    public function detail($shop_id)
     {
-        $shop = Shop::find($request->id);
+        $shop = Shop::find($shop_id);
         // $shops = Shop::with(['area', 'genre'])->get();
 
         return view('shop_detail', compact('shop'));

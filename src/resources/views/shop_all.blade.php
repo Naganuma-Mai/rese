@@ -45,7 +45,7 @@
                     <p class="card__content-tag-item">#{{ $shop->genre->name }}</p>
                     </p>
                 </div>
-                <form class="card__content-form" action="/detail/:shop_id" method="get">
+                <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
                     @csrf
                     <div class="form__item">
                         <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
