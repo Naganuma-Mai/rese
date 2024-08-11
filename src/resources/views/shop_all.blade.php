@@ -9,21 +9,20 @@
 <form class="search-form" action="/shops/search" method="get">
     @csrf
     <div class="search-form__item">
-        <select class="search-form__item-select" name="area_id">
+        <select onchange="submit(this.form)" class="search-form__item-select" name="area_id">
             <option value="" selected>All area</option>
             @foreach ($areas as $area)
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                <option value="{{ $area->id }}" @if( request('area_id')==$area->id ) selected @endif>{{ $area->name }}</option>
             @endforeach
         </select>
-        <select class="search-form__item-select" name="genre_id">
+        <select onchange="submit(this.form)" class="search-form__item-select" name="genre_id">
             <option value="" selected>All genre</option>
             @foreach ($genres as $genre)
-                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>{{ $genre->name }}</option>
             @endforeach
         </select>
         <img src="{{ asset('images/search.png') }}" alt="">
-        <input class="search-form__item-input" type="text" name="keyword" placeholder="Search ..." value="{{ old('keyword') }}">
-        <button class="search-form__button-submit" type="submit">検索</button>
+        <input class="search-form__item-input" type="text" name="keyword" placeholder="Search ..." value="{{request('keyword')}}">
     </div>
 </form>
 @endsection

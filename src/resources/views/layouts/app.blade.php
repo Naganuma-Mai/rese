@@ -55,6 +55,7 @@
                     </ul>
                 </nav>
             </div>
+            @yield('form')
         </div>
     </header>
 
