@@ -51,7 +51,7 @@
 
             <div class="form__item">
                 <select id="select_number" class="form__item--select" name="number">
-                    <option value="" selected></option>
+                    <option disabled selected></option>
                     @for($i = 1; $i < 101; $i++)
                         <option value="{{ $i }}" {{ old('number')==$i ? 'selected' : '' }}>{{
                         $i }}人</option>
