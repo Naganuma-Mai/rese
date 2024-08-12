@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LikeController;
@@ -17,6 +18,8 @@ use App\Http\Controllers\ReservationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/thanks', [RegisterController::class, 'thanks']);
 
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/shops/search', [ShopController::class, 'search']);
