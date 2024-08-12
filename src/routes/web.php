@@ -28,5 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/unlike', [LikeController::class, 'destroy']);
     Route::post('/done', [ReservationController::class, 'store']);
     // Route::patch('/todos/update', [TodoController::class, 'update']);
-    Route::delete('/delete', [ReservationController::class, 'destroy']);
+    Route::post('/delete', [ReservationController::class, 'destroy']);
 });

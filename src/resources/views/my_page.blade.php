@@ -35,7 +35,8 @@
                         </tr>
                         <tr class="reservation-card__table-row">
                             <th class="reservation-card__table-header">Time</th>
-                            <td class="reservation-card__table-text">{{ $reservation->time }}
+                            <td class="reservation-card__table-text">
+                                {{ substr($reservation->time, 0, 5) }}
                             </td>
                         </tr>
                         <tr class="reservation-card__table-row">

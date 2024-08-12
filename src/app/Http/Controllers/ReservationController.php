@@ -37,6 +37,6 @@ class ReservationController extends Controller
     {
         Reservation::find($request->id)->delete();
 
-        return redirect('/mypage')->with('message', 'Todoを削除しました');
+        return redirect('/mypage');
     }
 }
