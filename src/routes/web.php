@@ -24,7 +24,8 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/mypage', [UserController::class, 'index']);
-    Route::post('/like', [LikeController::class, 'like']);
+    Route::post('/like', [LikeController::class, 'store']);
+    Route::post('/unlike', [LikeController::class, 'destroy']);
     Route::post('/done', [ReservationController::class, 'store']);
     // Route::patch('/todos/update', [TodoController::class, 'update']);
     Route::delete('/delete', [ReservationController::class, 'destroy']);

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('css')
+@section('head')
 <link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
 @endsection
 
