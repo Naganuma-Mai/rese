@@ -1,9 +1,11 @@
 .header__inner {
     margin: 0 auto;
-    padding: 15px 50px;
+    padding: 35px 50px 0;
     height: 11vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background: #EEEEEE;
 }
 
 .header-utilities {
@@ -17,6 +19,9 @@
     font-size: 28px;
     line-height: 36px;
     margin: 0;
+    margin-left: 120px;
+    color: #305DFF;
+    font-weight: bold;
 }
 
 .header-nav__list {

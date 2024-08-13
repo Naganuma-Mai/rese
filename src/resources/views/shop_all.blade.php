@@ -22,7 +22,7 @@
                 <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>{{ $genre->name }}</option>
             @endforeach
         </select>
-        <img src="{{ asset('images/search.png') }}" alt="">
+        <img src="{{ asset('images/search.png') }}" class="search-form__item-img" alt="">
         <input class="search-form__item-input" type="text" name="keyword" placeholder="Search ..." value="{{request('keyword')}}">
     </div>
 </form>
@@ -45,32 +45,34 @@
                     <p class="card__content-tag-item">#{{ $shop->genre->name }}</p>
                     </p>
                 </div>
-                <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
-                    @csrf
-                    <div class="form__item">
-                        <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
-                        <button class="card__content-button" type="submit">詳しくみる</button>
-                    </div>
-                </form>
-                <!-- ログイン後 -->
-                @if (Auth::check())
-                    <!-- お気に入りにしていないお店 -->
-                    @if (!Auth::user()->is_like($shop->id))
-                        <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
-                            <img src="{{ asset('images/heart_gray.png') }}" class="icon_like" alt="">
-                        </a>
-                    <!-- 既にお気に入りにしているお店 -->
+                <div class="card__content-footer">
+                    <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
+                        @csrf
+                        <div class="form__item">
+                            <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
+                            <button class="card__content-button" type="submit">詳しくみる</button>
+                        </div>
+                    </form>
+                    <!-- ログイン後 -->
+                    @if (Auth::check())
+                        <!-- お気に入りにしていないお店 -->
+                        @if (!Auth::user()->is_like($shop->id))
+                            <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
+                                <img src="{{ asset('images/heart_gray.png') }}" class="card__content-img" alt="">
+                            </a>
+                        <!-- 既にお気に入りにしているお店 -->
+                        @else
+                            <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="1">
+                                <img src="{{ asset('images/heart_red.png') }}" class="card__content-img" alt="">
+                            </a>
+                        @endif
+                    <!-- ログイン前 -->
                     @else
-                        <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="1">
-                            <img src="{{ asset('images/heart_red.png') }}" class="icon_like" alt="">
+                        <a class="likes">
+                            <img src="{{ asset('images/heart_gray.png') }}" class="card__content-img" alt="">
                         </a>
                     @endif
-                <!-- ログイン前 -->
-                @else
-                    <a class="likes">
-                        <img src="{{ asset('images/heart_gray.png') }}" class="icon_like" alt="">
-                    </a>
-                @endif
+                </div>
             </div>
         </div>
         @endforeach
