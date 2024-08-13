@@ -1,0 +1,116 @@
+.header__inner {
+    margin: 0 auto;
+    padding: 15px 50px;
+    height: 11vh;
+    display: flex;
+    align-items: center;
+}
+
+.header-utilities {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 0;
+}
+
+.header-nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 100vh;
+    top: -1000px;
+    left: 0;
+    background: #FFFFFF;
+    position: fixed;
+    margin: 0;
+    padding-top: 200px;
+}
+
+.header-nav__item {
+    list-style: none;
+}
+
+.header-nav__form {
+    display: inline-block;
+    margin: 0;
+}
+
+.header-nav__button {
+    color: #305DFF;
+    border: none;
+    padding: 0;
+    background: transparent;
+    font-size: 32px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px auto;
+}
+
+#btn {
+    position: fixed;
+    top: 35px;
+    left: 100px;
+    width: 20px;
+    height: 28px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    background-color: #305DFF;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #747474;
+    padding: 6px 10px;
+}
+
+#btn span {
+    display: block;
+    background-color: #FFFFFF;
+    height: 1px;
+    transition: all 0.5s ease;
+}
+
+#btn span:nth-of-type(1) {
+    width: 10px;
+}
+
+#btn span:nth-of-type(2) {
+    width: 20px;
+}
+
+#btn span:nth-of-type(3) {
+    width: 5px;
+}
+
+/* ボタンがクリックされたとき */
+#btn.on {
+    align-items: center;
+}
+
+#btn.on span {
+    width: 20px;
+}
+
+#btn.on span:nth-of-type(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#btn.on span:nth-of-type(2) {
+    transform: scale(0);
+}
+
+#btn.on span:nth-of-type(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.header-nav__list.on {
+    top: 0;
+}

@@ -27,12 +27,15 @@
                     Rese
                 </p>
                 <nav class="header-nav">
+                    <!-- ログイン後 -->
+                    @if (Auth::check())
                     <ul id="menu" class="header-nav__list">
                         <li class="header-nav__item">
-                            <a class="header-nav__link" href="/">Home</a>
+                            <form class="header-nav__form" action="/" method="get">
+                                @csrf
+                                <button class="header-nav__button">Home</button>
+                            </form>
                         </li>
-                        <!-- ログイン後 -->
-                        @if (Auth::check())
                         <li class="header-nav__item">
                             <form class="header-nav__form" action="/logout" method="post">
                                 @csrf
@@ -40,19 +43,36 @@
                             </form>
                         </li>
                         <li class="header-nav__item">
-                            <a class="header-nav__link" href="/mypage">Mypage</a>
+                            <form class="header-nav__form" action="/mypage" method="get">
+                                @csrf
+                                <button class="header-nav__button">Mypage</button>
+                            </form>
                         </li>
-
-                        <!-- ログイン前 -->
-                        @else
-                        <li class="header-nav__item">
-                            <a class="header-nav__link" href="/register">Registration</a>
-                        </li>
-                        <li class="header-nav__item">
-                            <a class="header-nav__link" href="/login">Login</a>
-                        </li>
-                        @endif
                     </ul>
+
+                    <!-- ログイン前 -->
+                    @else
+                    <ul id="menu" class="header-nav__list">
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/" method="get">
+                                @csrf
+                                <button class="header-nav__button">Home</button>
+                            </form>
+                        </li>
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/register" method="get">
+                                @csrf
+                                <button class="header-nav__button">Registration</button>
+                            </form>
+                        </li>
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/login" method="get">
+                                @csrf
+                                <button class="header-nav__button">Login</button>
+                            </form>
+                        </li>
+                    </ul>
+                    @endif
                 </nav>
             </div>
             @yield('form')
@@ -66,18 +86,10 @@
     <script>
         const btn = document.getElementById("btn");
         const menu = document.getElementById("menu");
-        const links = document.querySelectorAll("#menu a");
 
         btn.addEventListener("click", () => {
             btn.classList.toggle("on");
             menu.classList.toggle("on");
-        });
-
-        links.forEach((link) => {
-            link.addEventListener("click", () => {
-                btn.classList.toggle("on");
-                menu.classList.toggle("on");
-            });
         });
     </script>
 </body>
