@@ -6,17 +6,18 @@
 
 @section('content')
 <div class="login__content">
-    <div class="login-form__heading">
-        Login
-    </div>
-    <form class="form" action="/login" method="post">
-        @csrf
-        <div class="form__group">
-            <div class="form__group-content">
-                <img src="{{ asset('images/email.png') }}" alt="">
-                <div class="form__input--text">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+    <div class="login__box">
+        <div class="login-form__heading">
+            Login
+        </div>
+        <form class="form" action="/login" method="post">
+            @csrf
+            <div class="form__group">
+                <div class="form__group-content">
+                    <img src="{{ asset('images/email.png') }}" class="form__group-img" alt="">
+                    <div class="form__input--text">
+                        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                    </div>
                 </div>
                 <div class="form__error">
                     @error('email')
@@ -24,12 +25,12 @@
                     @enderror
                 </div>
             </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-content">
-                <img src="{{ asset('images/password.png') }}" alt="">
-                <div class="form__input--text">
-                    <input type="password" name="password" placeholder="Password">
+            <div class="form__group">
+                <div class="form__group-content">
+                    <img src="{{ asset('images/password.png') }}" class="form__group-img" alt="">
+                    <div class="form__input--text">
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
                 </div>
                 <div class="form__error">
                     @error('password')
@@ -37,10 +38,10 @@
                     @enderror
                 </div>
             </div>
-        </div>
-        <div class="form__button">
-            <button class="form__button-submit" type="submit">ログイン</button>
-        </div>
-    </form>
+            <div class="form__button">
+                <button class="form__button-submit" type="submit">ログイン</button>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection

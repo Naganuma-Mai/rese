@@ -42,7 +42,7 @@
                 <div class="form__group-content">
                     <img src="{{ asset('images/password.png') }}" class="form__group-img" alt="">
                     <div class="form__input--text">
-                        <input type="password" placeholder="Password" name="password">
+                        <input type="password" name="password" placeholder="Password" >
                     </div>
                 </div>
                 <div class="form__error">
