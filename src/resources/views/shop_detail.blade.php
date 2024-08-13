@@ -7,7 +7,11 @@
 @section('content')
 <div class="shop-detail__content">
     <div class="shop-detail__inner">
-        <h2 class="shop-detail-ttl">
+        <form class="shop-detail__form" action="/" method="get">
+            @csrf
+            <button class="shop-detail__button"><</button>
+        </form>
+        <h2 class="shop-detail__ttl">
             {{ $shop->name }}
         </h2>
         <div class="shop-detail__img">
