@@ -7,97 +7,100 @@
 @section('content')
 <div class="shop-detail__content">
     <div class="shop-detail__inner">
-        <form class="shop-detail__form" action="/" method="get">
-            @csrf
-            <button class="shop-detail__button"><</button>
-        </form>
-        <h2 class="shop-detail__ttl">
-            {{ $shop->name }}
-        </h2>
-        <div class="shop-detail__img">
-            <img src="{{ $shop->image }}" alt="">
-        </div>
-        <div class="shop-detail__text">
-            <div class="shop-detail__tag">
-                <p class="shop-detail__tag-item">#{{ $shop->area->name }}</p>
-                <p class="shop-detail__tag-item">#{{ $shop->genre->name }}</p>
+        <div class="shop-detail__section">
+            <div class="shop-detail__header">
+                <form class="shop-detail__form" action="/" method="get">
+                    @csrf
+                    <button class="shop-detail__button"><</button>
+                </form>
+                <h2 class="shop-detail__ttl">
+                    {{ $shop->name }}
+                </h2>
+            </div>
+            <div class="shop-detail__img">
+                <img src="{{ $shop->image }}" alt="">
+            </div>
+            <div class="shop-detail__text">
+                <div class="shop-detail__tag">
+                    <p class="shop-detail__tag-item">#{{ $shop->area->name }}</p>
+                    <p class="shop-detail__tag-item shop-detail__tag-last">#{{ $shop->genre->name }}</p>
+                    </p>
+                </div>
+                <p class="shop-detail__text-overview">
+                    {{ $shop->overview }}
                 </p>
             </div>
-            <p class="shop-detail__text-overview">
-                {{ $shop->overview }}
-            </p>
         </div>
-    </div>
 
-    <div class="reservation__content">
-        <h2 class="reservation__heading">予約</h2>
+        <div class="reservation__form">
+            <div class="reservation__content">
+                <h2 class="reservation__ttl">予約</h2>
+                <form class="form" action="/done" method="post">
+                    @csrf
+                    <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                    <div class="form__item">
+                        <input id="input_date" class="form__item--input form__item--input-date" type="date" name="date">
+                        <!-- <div class="form__error">
+                            @error('gender')
+                            {{ $message }}
+                            @enderror
+                        </div> -->
+                    </div>
+                    <div class="form__item">
+                        <input id="input_time" class="form__item--input form__item--input-time" type="time" name="time">
+                        <!-- <div class="form__error">
+                            @error('detail')
+                            {{ $message }}
+                            @enderror
+                        </div> -->
+                    </div>
+                    <div class="form__item">
+                        <select id="select_number" class="form__item--select" name="number">
+                            <option disabled selected></option>
+                            @for($i = 1; $i < 101; $i++)
+                                <option value="{{ $i }}" {{ old('number')==$i ? 'selected' : '' }}>{{
+                                $i }}人</option>
+                            @endfor
+                        </select>
+                            <!-- <div class="form__error">
+                                @error('category_id')
+                                {{ $message }}
+                                @enderror
+                            </div> -->
+                    </div>
 
-        <form class="form" action="/done" method="post">
-            @csrf
-            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-            <div class="form__item">
-                <input id="input_date" class="form__item--input" type="date" name="date">
-                <!-- <div class="form__error">
-                    @error('gender')
-                    {{ $message }}
-                    @enderror
-                </div> -->
-            </div>
-
-            <div class="form__item">
-                <input id="input_time" class="form__item--input" type="time" name="time">
-                <!-- <div class="form__error">
-                    @error('detail')
-                    {{ $message }}
-                    @enderror
-                </div> -->
-            </div>
-
-            <div class="form__item">
-                <select id="select_number" class="form__item--select" name="number">
-                    <option disabled selected></option>
-                    @for($i = 1; $i < 101; $i++)
-                        <option value="{{ $i }}" {{ old('number')==$i ? 'selected' : '' }}>{{
-                        $i }}人</option>
-                    @endfor
-                </select>
-                    <!-- <div class="form__error">
-                        @error('category_id')
-                        {{ $message }}
-                        @enderror
-                    </div> -->
-            </div>
-
-            <div class="reservation-table">
-                <table class="reservation-table__inner">
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Shop</th>
-                        <td class="reservation-table__text">
-                            {{ $shop->name }}
-                        </td>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Date</th>
-                        <td id="date" class="reservation-table__text">
-                        </td>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Time</th>
-                        <td id="time" class="reservation-table__text">
-                        </td>
-                    </tr>
-                    <tr class="reservation-table__row">
-                        <th class="reservation-table__header">Number</th>
-                        <td id="number" class="reservation-table__text">
-                        </td>
-                    </tr>
-                </table>
+                    <div class="reservation-table">
+                        <table class="reservation-table__inner">
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">Shop</th>
+                                <td class="reservation-table__text">
+                                    {{ $shop->name }}
+                                </td>
+                            </tr>
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">Date</th>
+                                <td id="date" class="reservation-table__text">
+                                </td>
+                            </tr>
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">Time</th>
+                                <td id="time" class="reservation-table__text">
+                                </td>
+                            </tr>
+                            <tr class="reservation-table__row">
+                                <th class="reservation-table__header">Number</th>
+                                <td id="number" class="reservation-table__text">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
             </div>
 
             <div class="form__button">
                 <button class="form__button-submit" type="submit">予約する</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
