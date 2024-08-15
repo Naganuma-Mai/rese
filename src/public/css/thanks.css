@@ -20,14 +20,14 @@
     text-align: center;
 }
 
-.back__button {
+.login__button {
     display: flex;
     justify-content: center;
 }
 
-.back__button-link {
+.login__button-link {
     padding: 10px;
-    width: 55px;
+    width: 105px;
     height: 30px;
     background: #305DFF;
     color: #FFFFFF;

@@ -6,11 +6,11 @@
 
 @section('content')
 <div class="thanks__content">
-    <div class="thanks__heading">
-        ご予約ありがとうございます
-    </div>
-    <div class="back__button">
-        <a class="back__button-link" href="/">戻る</a>
+    <div class="thanks__box">
+        <div class="thanks__heading">ご予約ありがとうございます</div>
+        <div class="back__button">
+            <a class="back__button-link" href="/">戻る</a>
+        </div>
     </div>
 </div>
 @endsection
