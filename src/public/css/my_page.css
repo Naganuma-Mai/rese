@@ -1,0 +1,160 @@
+.my-page__content {
+    padding: 25px 15px 30px;
+    background: #EEEEEE;
+    min-height: 89vh;
+}
+
+.my-page__heading {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 31px;
+}
+
+.my-page_inner {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1150px;
+}
+
+.reservation__heading {
+    margin: 0;
+    font-size: 23px;
+}
+
+.reservation-card {
+    background: #305DFF;
+    width: 430px;
+    border-radius: 5px;
+    padding: 16px 27px 28px;
+    box-shadow: 3px 3px 3px #9f9f9f;
+    margin: 23px 0 0;
+}
+
+.reservation-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reservation-card__img {
+    width: 27px;
+    height: 27px;
+}
+
+.reservation-card__title {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-right: 230px;
+}
+
+.reservation-card__form-button {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background: #305DFF;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reservation-card__table {
+    text-align: left;
+    margin-top: 11px;
+}
+
+.reservation-card__table-header {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 9px 40px 9px 0;
+}
+
+.reservation-card__table-text {
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 9px 40px 9px 0;
+}
+
+.favorite-shops__content {
+    margin-left: 85px;
+    width: 635px;
+}
+
+.favorite-shops__heading {
+    font-size: 23px;
+    margin: 0;
+}
+
+.shop-card__group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.shop-card {
+    width: 290px;
+    margin: 23px 0 0;
+    box-shadow: 3px 3px 3px #9f9f9f;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 270px;
+}
+
+.shop-card__img {
+    height: 143px;
+}
+
+.shop-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shop-card__content {
+    padding: 18px 20px;
+    background: #FFFFFF;
+    height: 135px;
+}
+
+.shop-card__content-ttl {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.shop-card__content-tag {
+    font-size: 14px;
+}
+
+.shop-card__content-tag-item {
+    /* 横並びにするためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 12px;
+    margin: 0;
+}
+
+.shop-card__content-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-card__content-button {
+    background: #305DFF;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 14px;
+    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.shop-card__content-img {
+    width: 31px;
+    height: 31px;
+}

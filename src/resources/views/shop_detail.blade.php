@@ -94,11 +94,10 @@
                             </tr>
                         </table>
                     </div>
+                    <!-- <div class="form__button"> -->
+                        <button class="form__button-submit" type="submit">予約する</button>
+                    <!-- </div> -->
                 </form>
-            </div>
-
-            <div class="form__button">
-                <button class="form__button-submit" type="submit">予約する</button>
             </div>
         </div>
     </div>

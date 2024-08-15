@@ -8,18 +8,25 @@
 
 @section('content')
 <div class="my-page__content">
-    <div class="my-page__heading">
+    <h1 class="my-page__heading">
         {{ Auth::user()->name }}さん
-    </div>
+    </h1>
     <div class="my-page_inner">
         <div class="reservation__content">
             <h2 class="reservation__heading">予約状況</h2>
             @foreach ($reservations as $reservation)
             <div class="reservation-card">
-                <img src="{{ asset('images/clock.png') }}" alt="">
-                <p class="reservation-card__title">
-                    予約{{ $loop->iteration }}
-                </p>
+                <div class="reservation-card__header">
+                    <img src="{{ asset('images/clock.png') }}" class="reservation-card__img" alt="">
+                    <p class="reservation-card__title">
+                        予約{{ $loop->iteration }}
+                    </p>
+                    <form class="reservation-card__form" action="/delete" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $reservation->id }}">
+                        <button class="reservation-card__form-button" type="submit">×</button>
+                    </form>
+                </div>
                 <div class="reservation-card__table">
                     <table class="reservation-card__table-inner">
                         <tr class="reservation-card__table-row">
@@ -46,53 +53,51 @@
                         </tr>
                     </table>
                 </div>
-                <form action="/delete" method="POST">
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $reservation->id }}">
-                    <button class="reservation-card__form-button" type="submit">×</button>
-                </form>
             </div>
             @endforeach
         </div>
 
         <div class="favorite-shops__content">
             <h2 class="favorite-shops__heading">お気に入り店舗</h2>
-            @foreach ($like_shops as $shop)
-            <div class="shop-card">
-                <div class="shop-card__img">
-                    <img src="{{ $shop->image }}" alt="">
-                </div>
-                <div class="shop-card__content">
-                    <div class="shop-card__content-cat">カテゴリー</div>
-                    <h2 class="shop-card__content-ttl">
-                        {{ $shop->name }}
-                    </h2>
-                    <div class="shop-card__content-tag">
-                        <p class="shop-card__content-tag-item">#{{ $shop->area->name }}</p>
-                        <p class="shop-card__content-tag-item">#{{ $shop->genre->name }}</p>
-                        </p>
+            <div class="shop-card__group">
+                @foreach ($like_shops as $shop)
+                <div class="shop-card">
+                    <div class="shop-card__img">
+                        <img src="{{ $shop->image }}" alt="">
                     </div>
-                    <form class="shop-card__content-form" action="/detail/:shop_id" method="get">
-                        @csrf
-                        <!-- <div class="form__item"> -->
-                            <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
-                            <button class="shop-card__content-button" type="submit">詳しくみる</button>
-                        <!-- </div> -->
-                    </form>
-                    <!-- お気に入りにしていないお店 -->
-                    @if (!Auth::user()->is_like($shop->id))
-                        <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
-                            <img src="{{ asset('images/heart_gray.png') }}" class="icon_like" alt="">
-                        </a>
-                    <!-- 既にお気に入りにしているお店 -->
-                    @else
-                        <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="1">
-                            <img src="{{ asset('images/heart_red.png') }}" class="icon_like" alt="">
-                        </a>
-                    @endif
+                    <div class="shop-card__content">
+                        <h2 class="shop-card__content-ttl">
+                            {{ $shop->name }}
+                        </h2>
+                        <div class="shop-card__content-tag">
+                            <p class="shop-card__content-tag-item">#{{ $shop->area->name }}</p>
+                            <p class="shop-card__content-tag-item">#{{ $shop->genre->name }}</p>
+                            </p>
+                        </div>
+                        <div class="shop-card__content-footer">
+                            <form class="shop-card__content-form" action="/detail/{{ $shop->id }}" method="get">
+                                @csrf
+                                <!-- <div class="form__item"> -->
+                                    <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
+                                    <button class="shop-card__content-button" type="submit">詳しくみる</button>
+                                <!-- </div> -->
+                            </form>
+                            <!-- お気に入りにしていないお店 -->
+                            @if (!Auth::user()->is_like($shop->id))
+                                <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
+                                    <img src="{{ asset('images/heart_gray.png') }}" class="shop-card__content-img" alt="">
+                                </a>
+                            <!-- 既にお気に入りにしているお店 -->
+                            @else
+                                <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="1">
+                                    <img src="{{ asset('images/heart_red.png') }}" class="shop-card__content-img" alt="">
+                                </a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </div>

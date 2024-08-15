@@ -74,18 +74,18 @@
 
 .reservation__content {
     background: #305DFF;
-    padding: 28px 26px;
+    padding: 28px 0 0;
     height: 618px;
 }
 
 .reservation__ttl {
     color: #FFFFFF;
     font-size: 22px;
-    margin: 0 0 22px;
+    margin: 0 26px 22px;
 }
 
 .form__item {
-    margin: 13px 0;
+    margin: 13px 26px;
 }
 
 .form__item--input,
@@ -141,7 +141,7 @@
     border-radius: 5px;
     padding: 21px 20px;
     text-align: left;
-    margin-top: 18px;
+    margin: 18px 26px 0;
     width: 460px;
 }
 
@@ -165,4 +165,5 @@
     width: 100%;
     height: 54px;
     font-size: 15px;
+    margin-top: 243px;
 }
