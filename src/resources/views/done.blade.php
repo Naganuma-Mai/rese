@@ -7,10 +7,15 @@
 @section('content')
 <div class="thanks__content">
     <div class="thanks__box">
-        <div class="thanks__heading">ご予約ありがとうございます</div>
-        <div class="back__button">
-            <a class="back__button-link" href="/">戻る</a>
+        <div class="thanks__heading">
+            ご予約ありがとうございます
         </div>
+        <form class="thanks__form" action="/detail/{{ $shop_id }}" method="get">
+            @csrf
+            <div class="thanks__form-item">
+                <button class="thanks__form-button" type="submit">戻る</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

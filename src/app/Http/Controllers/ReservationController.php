@@ -22,7 +22,9 @@ class ReservationController extends Controller
             ])
         );
 
-        return view('done');
+        $shop_id = $request->shop_id;
+
+        return view('done', compact('shop_id'));
     }
 
     // public function update(TodoRequest $request)
