@@ -21,10 +21,10 @@
                     <p class="reservation-card__title">
                         予約{{ $loop->iteration }}
                     </p>
-                    <form class="reservation-card__form" action="/delete" method="POST">
+                    <form class="reservation-card__form-delete" action="/delete" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $reservation->id }}">
-                        <button class="reservation-card__form-button" type="submit">×</button>
+                        <button class="reservation-card__button-delete" type="submit">×</button>
                     </form>
                 </div>
                 <div class="reservation-card__table">
@@ -53,6 +53,11 @@
                         </tr>
                     </table>
                 </div>
+                <form class="reservation-card__form-edit" action="/edit" method="get">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $reservation->id }}">
+                    <button class="reservation-card__button-edit" type="submit">編集</button>
+                </form>
             </div>
             @endforeach
         </div>

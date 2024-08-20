@@ -27,13 +27,19 @@ class ReservationController extends Controller
         return view('done', compact('shop_id'));
     }
 
-    // public function update(TodoRequest $request)
-    // {
-    //     $todo = $request->only(['content']);
-    //     Reservation::find($request->id)->update($todo);
+    public function edit(Request $request)
+    {
+        $reservation = Reservation::find($request->id);
+        return view('edit', compact('reservation'));
+    }
 
-    //     return redirect('/')->with('message', 'Todoを更新しました');
-    // }
+    public function update(Request $request)
+    {
+        $reservation = $request->only(['date', 'time', 'number']);
+        Reservation::find($request->reservation_id)->update($reservation);
+
+        return redirect('/mypage');
+    }
 
     public function destroy(Request $request)
     {

@@ -47,7 +47,7 @@
     margin-right: 230px;
 }
 
-.reservation-card__form-button {
+.reservation-card__button-delete {
     width: 24px;
     height: 24px;
     border: 2px solid #FFFFFF;
@@ -58,11 +58,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .reservation-card__table {
     text-align: left;
     margin-top: 11px;
+    margin-bottom: 11px;
 }
 
 .reservation-card__table-header {
@@ -76,6 +78,21 @@
     color: #FFFFFF;
     font-size: 14px;
     padding: 9px 40px 9px 0;
+}
+
+.reservation-card__form-edit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.reservation-card__button-edit {
+    color: #FFFFFF;
+    background: #305DFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .favorite-shops__content {

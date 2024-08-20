@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/like', [LikeController::class, 'store']);
     Route::post('/unlike', [LikeController::class, 'destroy']);
     Route::post('/done', [ReservationController::class, 'store']);
-    // Route::patch('/todos/update', [TodoController::class, 'update']);
+    Route::get('/edit', [ReservationController::class, 'edit']);
+    Route::post('/edit', [ReservationController::class, 'update']);
     Route::post('/delete', [ReservationController::class, 'destroy']);
 });
