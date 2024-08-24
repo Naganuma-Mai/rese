@@ -56,7 +56,7 @@
                     <!-- ログイン後 -->
                     @if (Auth::check())
                         <!-- お気に入りにしていないお店 -->
-                        @if (!Auth::user()->is_like($shop->id))
+                        @if (!Auth::user()->isLike($shop->id))
                             <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
                                 <img src="{{ asset('images/heart_gray.png') }}" class="card__content-img" alt="">
                             </a>

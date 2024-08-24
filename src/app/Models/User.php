@@ -53,12 +53,12 @@ class User extends Authenticatable
     }
 
     // 多対多のリレーション
-    public function like_shops()
+    public function likeShops()
     {
         return $this->belongsToMany(Shop::class, 'likes', 'user_id', 'shop_id')->withTimestamps();
     }
 
-    public function is_like($shop_id)
+    public function isLike($shop_id)
     {
         return $this->likes()->where('shop_id', $shop_id)->exists();
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit', [ReservationController::class, 'edit']);
     Route::post('/edit', [ReservationController::class, 'update']);
     Route::post('/delete', [ReservationController::class, 'destroy']);
+    Route::get('/review', [ReviewController::class, 'index']);
+    Route::post('/review', [ReviewController::class, 'store']);
 });

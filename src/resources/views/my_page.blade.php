@@ -53,11 +53,21 @@
                         </tr>
                     </table>
                 </div>
-                <form class="reservation-card__form-edit" action="/edit" method="get">
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $reservation->id }}">
-                    <button class="reservation-card__button-edit" type="submit">編集</button>
-                </form>
+                <!-- 来店後 -->
+                @if ($reservation->isVisit())
+                    <form class="reservation-card__form" action="/review" method="get">
+                        @csrf
+                        <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
+                        <button class="reservation-card__button" type="submit">レビュー</button>
+                    </form>
+                <!-- 来店前 -->
+                @else
+                    <form class="reservation-card__form" action="/edit" method="get">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $reservation->id }}">
+                        <button class="reservation-card__button" type="submit">編集</button>
+                    </form>
+                @endif
             </div>
             @endforeach
         </div>
@@ -88,7 +98,7 @@
                                 <!-- </div> -->
                             </form>
                             <!-- お気に入りにしていないお店 -->
-                            @if (!Auth::user()->is_like($shop->id))
+                            @if (!Auth::user()->isLike($shop->id))
                                 <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
                                     <img src="{{ asset('images/heart_gray.png') }}" class="shop-card__content-img" alt="">
                                 </a>

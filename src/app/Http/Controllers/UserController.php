@@ -15,7 +15,7 @@ class UserController extends Controller
         $reservations = $user->reservations;
 
         // ユーザーがお気に入りにした飲食店の一覧を取得
-        $like_shops = $user->like_shops()->get();
+        $like_shops = $user->likeShops()->get();
 
         return view('my_page', compact('reservations', 'like_shops'));
     }
