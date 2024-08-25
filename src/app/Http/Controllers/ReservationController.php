@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Auth;
 
 class ReservationController extends Controller
 {
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
 
         $request['user_id'] = Auth::id();
@@ -33,7 +34,7 @@ class ReservationController extends Controller
         return view('edit', compact('reservation'));
     }
 
-    public function update(Request $request)
+    public function update(ReservationRequest $request)
     {
         $reservation = $request->only(['date', 'time', 'number']);
         Reservation::find($request->reservation_id)->update($reservation);

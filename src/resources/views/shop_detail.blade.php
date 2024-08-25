@@ -33,10 +33,10 @@
         </div>
 
         <div class="reservation__form">
-            <div class="reservation__content">
-                <h2 class="reservation__ttl">予約</h2>
-                <form class="form" action="/done" method="post">
-                    @csrf
+            <h2 class="reservation__ttl">予約</h2>
+            <form class="form" action="/done" method="post">
+                @csrf
+                <div class="reservation__form-content">
                     <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     <div class="form__item">
                         <input id="input_date" class="form__item--input form__item--input-date" type="date" name="date">
@@ -94,11 +94,22 @@
                             </tr>
                         </table>
                     </div>
-                    <!-- <div class="form__button"> -->
-                        <button class="form__button-submit" type="submit">予約する</button>
-                    <!-- </div> -->
-                </form>
-            </div>
+                    <div class="reservation__alert">
+                        @if ($errors->any())
+                            <div class="reservation__alert--danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <!-- <div class="form__button"> -->
+                    <button class="form__button-submit" type="submit">予約する</button>
+                <!-- </div> -->
+            </form>
         </div>
     </div>
 </div>

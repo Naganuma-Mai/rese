@@ -8,10 +8,10 @@
 <div class="edit__content">
     <div class="edit__inner">
         <div class="reservation__form">
-            <div class="reservation__content">
-                <h2 class="reservation__ttl">予約変更</h2>
-                <form class="form" action="/edit" method="post">
-                    @csrf
+            <h2 class="reservation__ttl">予約変更</h2>
+            <form class="form" action="/edit" method="post">
+                @csrf
+                <div class="reservation__form-content">
                     <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
                     <div class="reservation-table">
                         <table class="reservation-table__inner">
@@ -62,11 +62,22 @@
                             </tr>
                         </table>
                     </div>
-                    <!-- <div class="form__button"> -->
-                        <button class="form__button-submit" type="submit">変更する</button>
-                    <!-- </div> -->
-                </form>
-            </div>
+                    <div class="reservation__alert">
+                        @if ($errors->any())
+                            <div class="reservation__alert--danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <!-- <div class="form__button"> -->
+                    <button class="form__button-submit" type="submit">変更する</button>
+                <!-- </div> -->
+            </form>
         </div>
     <div>
 </div>
