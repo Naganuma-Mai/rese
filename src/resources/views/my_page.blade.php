@@ -53,21 +53,37 @@
                         </tr>
                     </table>
                 </div>
-                <!-- 来店後 -->
-                @if ($reservation->isVisit())
-                    <form class="reservation-card__form" action="/review" method="get">
-                        @csrf
-                        <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
-                        <button class="reservation-card__button" type="submit">レビュー</button>
+                <div class="reservation-card__form">
+                    <form class="reservation-card__form--stripe" action="{{ asset('pay') }}" method="POST">
+                        {{ csrf_field() }}
+                        <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="{{ env('STRIPE_KEY') }}"
+                        data-amount="1000"
+                        data-name="Stripe Demo"
+                        data-label="決済"
+                        data-description="これはStripeのデモです"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto"
+                        data-currency="JPY">
+                        </script>
                     </form>
-                <!-- 来店前 -->
-                @else
-                    <form class="reservation-card__form" action="/edit" method="get">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $reservation->id }}">
-                        <button class="reservation-card__button" type="submit">編集</button>
-                    </form>
-                @endif
+                    <!-- 来店後 -->
+                    @if ($reservation->isVisit())
+                        <form class="reservation-card__form--review" action="/review" method="get">
+                            @csrf
+                            <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
+                            <button class="reservation-card__button" type="submit">レビュー</button>
+                        </form>
+                    <!-- 来店前 -->
+                    @else
+                        <form class="reservation-card__form--edit" action="/edit" method="get">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $reservation->id }}">
+                            <button class="reservation-card__button" type="submit">編集</button>
+                        </form>
+                    @endif
+                </div>
             </div>
             @endforeach
         </div>

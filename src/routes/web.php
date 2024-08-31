@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/delete', [ReservationController::class, 'destroy']);
     Route::get('/review', [ReviewController::class, 'index']);
     Route::post('/review', [ReviewController::class, 'store']);
+    Route::post('/pay', [PaymentController::class, 'pay']);
 });

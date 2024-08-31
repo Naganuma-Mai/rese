@@ -86,7 +86,24 @@
 
 .reservation-card__form {
     display: flex;
+    justify-content: space-between;
+}
+
+/* .reservation-card__form {
+    display: flex;
     justify-content: flex-end;
+} */
+
+button.stripe-button-el {
+    background-image: none;
+}
+
+button.stripe-button-el>span {
+    background-color: #305DFF;
+    background-image: none;
+    border: 1px solid #FFFFFF;
+    padding: 0 10px;
+    font-size: 14px;
 }
 
 .reservation-card__button {
