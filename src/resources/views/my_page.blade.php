@@ -53,6 +53,7 @@
                         </tr>
                     </table>
                 </div>
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(50)->generate('https://www.example.com')) !!} ">
                 <div class="reservation-card__form">
                     <form class="reservation-card__form--stripe" action="{{ asset('pay') }}" method="POST">
                         {{ csrf_field() }}
