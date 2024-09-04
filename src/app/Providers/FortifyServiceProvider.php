@@ -28,6 +28,8 @@ class FortifyServiceProvider extends ServiceProvider
             RegisteredUserController::class,
             RegisterController::class
         );
+
+        // Fortify::ignoreRoutes();
     }
 
     /**
@@ -44,6 +46,8 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function () {
             return view('auth.login');
         });
+
+        Fortify::verifyEmailView(fn () => view('auth.verify'));
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;

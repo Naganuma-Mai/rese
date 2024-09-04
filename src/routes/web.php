@@ -21,13 +21,12 @@ use App\Http\Controllers\PaymentController;
 |
 */
 
-Route::get('/thanks', [RegisterController::class, 'thanks']);
-
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/shops/search', [ShopController::class, 'search']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
 
-Route::middleware('auth')->group(function () {
+Route::middleware('verified')->group(function () {
+    Route::get('/thanks', [RegisterController::class, 'thanks']);
     Route::get('/mypage', [UserController::class, 'index']);
     Route::post('/like', [LikeController::class, 'store']);
     Route::post('/unlike', [LikeController::class, 'destroy']);

@@ -1,0 +1,20 @@
+.container {
+    margin: 0 auto;
+    padding: 100px;
+    height: 89vh;
+    background: #EEEEEE;
+}
+
+.card {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.btn {
+    padding: 3px 10px;
+    border: none;
+    background: #305DFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 5px;
+}
