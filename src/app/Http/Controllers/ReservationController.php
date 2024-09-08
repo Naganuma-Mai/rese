@@ -48,4 +48,9 @@ class ReservationController extends Controller
 
         return redirect('/mypage');
     }
+
+    public function showQrCode()
+    {
+        return view('qr_code');
+    }
 }

@@ -34,6 +34,7 @@ Route::middleware('verified')->group(function () {
     Route::get('/edit', [ReservationController::class, 'edit']);
     Route::post('/edit', [ReservationController::class, 'update']);
     Route::post('/delete', [ReservationController::class, 'destroy']);
+    Route::get('/qrcode', [ReservationController::class, 'showQrCode']);
     Route::get('/review', [ReviewController::class, 'index']);
     Route::post('/review', [ReviewController::class, 'store']);
     Route::post('/pay', [PaymentController::class, 'pay']);

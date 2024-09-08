@@ -53,7 +53,6 @@
                         </tr>
                     </table>
                 </div>
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(50)->generate('https://www.example.com')) !!} ">
                 <div class="reservation-card__form">
                     <form class="reservation-card__form--stripe" action="{{ asset('pay') }}" method="POST">
                         {{ csrf_field() }}
@@ -68,6 +67,10 @@
                         data-locale="auto"
                         data-currency="JPY">
                         </script>
+                    </form>
+                    <form class="reservation-card__form--qrcode" action="/qrcode" method="get">
+                        @csrf
+                        <button class="reservation-card__button" type="submit">QRコード</button>
                     </form>
                     <!-- 来店後 -->
                     @if ($reservation->isVisit())

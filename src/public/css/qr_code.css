@@ -1,0 +1,11 @@
+.qrcode__content {
+    margin: 0 auto;
+    padding: 100px 15px;
+    height: 89vh;
+    background: #EEEEEE;
+}
+
+.qrcode_inner {
+    width: 200px;
+    margin: 0 auto;
+}
