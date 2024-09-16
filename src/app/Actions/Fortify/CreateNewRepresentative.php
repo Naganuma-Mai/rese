@@ -2,22 +2,22 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\User;
+use App\Models\Representative;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Contracts\CreatesNewRepresentatives;
 
-class CreateNewUser implements CreatesNewUsers
+class CreateNewRepresentative implements CreatesNewRepresentatives
 {
     use PasswordValidationRules;
 
     /**
-     * Validate and create a newly registered user.
+     * Validate and create a newly registered representative.
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input): User
+    public function create(array $input): Representative
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -26,12 +26,12 @@ class CreateNewUser implements CreatesNewUsers
                 'string',
                 'email',
                 'max:255',
-                Rule::unique(User::class),
+                Rule::unique(Representative::class),
             ],
             'password' => ['required'],
         ])->validate();
 
-        return User::create([
+        return Representative::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
