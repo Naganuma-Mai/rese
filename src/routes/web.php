@@ -70,5 +70,10 @@ Route::prefix('representative')->group(function () {
 
     Route::middleware('auth:representative')->group(function () {
         Route::get('/admin', [RepresentativeController::class, 'index']);
+        Route::get('/shops/create', [ShopController::class, 'add']);
+        Route::post('/shops/create', [ShopController::class, 'store']);
+        Route::get('/shops/update', [ShopController::class, 'edit']);
+        Route::post('/shops/update', [ShopController::class, 'update']);
+        Route::get('/reservation', [ReservationController::class, 'search']);
     });
 });

@@ -9,6 +9,13 @@ use Auth;
 
 class ReservationController extends Controller
 {
+    public function search(Request $request)
+    {
+        $reservations = Reservation::with(['user'])->ShopSearch($request->shop_id)->get();
+
+        return view('reservation', compact('reservations'));
+    }
+
     public function store(ReservationRequest $request)
     {
 

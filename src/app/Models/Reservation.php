@@ -41,4 +41,11 @@ class Reservation extends Model
             return false;
         }
     }
+
+    public function scopeShopSearch($query, $shop_id)
+    {
+        if (!empty($shop_id)) {
+            $query->where('shop_id', $shop_id);
+        }
+    }
 }

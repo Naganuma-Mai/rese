@@ -12,6 +12,7 @@ class Shop extends Model
     protected $fillable = [
         'area_id',
         'genre_id',
+        'representative_id',
         'name',
         'overview',
         'image'
@@ -25,6 +26,11 @@ class Shop extends Model
     public function genre()
     {
         return $this->belongsTo(Genre::class);
+    }
+
+    public function representative()
+    {
+        return $this->belongsTo(Representative::class);
     }
 
     public function scopeAreaSearch($query, $area_id)

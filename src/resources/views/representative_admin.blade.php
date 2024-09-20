@@ -1,60 +1,46 @@
 @extends('layouts.app')
 
 @section('head')
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/representative_admin.css') }}">
 @endsection
 
 @section('content')
-<div class="register__content">
-    <div class="register__box">
-        <div class="register-form__heading">
-            店舗情報の作成
+<div class="admin__content">
+    <h1 class="admin__heading">
+        {{ Auth::guard('representative')->user()->name }}さん
+    </h1>
+    <div class="admin__inner">
+        <div class="shop__content">
+            <h2 class="shop__heading">店舗情報</h2>
+            <div class="shop__form">
+                <!-- 店舗情報がない場合 -->
+                @if (Auth::guard('representative')->user()->shop == null)
+                    <form class="shop__form--add" action="/representative/shops/create" method="get">
+                        @csrf
+                        <button class="shop__form--button" type="submit">作成</button>
+                    </form>
+                <!-- 店舗情報がすでにある場合 -->
+                @else
+                    <form class="shop__form--edit" action="/representative/shops/update" method="get">
+                        @csrf
+                        <input type="hidden" name="shop_id" value="{{ Auth::guard('representative')->user()->shop->id }}">
+                        <button class="shop__form--button" type="submit">更新</button>
+                    </form>
+                @endif
+            </div>
         </div>
-        <form class="form" action="/register" method="post">
-            @csrf
-            <div class="form__group">
-                <div class="form__group-content">
-                    <img src="{{ asset('images/user.png') }}" class="form__group-img" alt="">
-                    <div class="form__input--text">
-                        <input type="text" name="name" placeholder="Username" value="{{ old('name') }}">
-                    </div>
-                </div>
-                <div class="form__error">
-                    @error('name')
-                    {{ $message }}
-                    @enderror
-                </div>
-            </div>
-            <div class="form__group">
-                <div class="form__group-content">
-                    <img src="{{ asset('images/email.png') }}" class="form__group-img" alt="">
-                    <div class="form__input--text">
-                        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
-                    </div>
-                </div>
-                <div class="form__error">
-                    @error('email')
-                    {{ $message }}
-                    @enderror
-                </div>
-            </div>
-            <div class="form__group">
-                <div class="form__group-content">
-                    <img src="{{ asset('images/password.png') }}" class="form__group-img" alt="">
-                    <div class="form__input--text">
-                        <input type="password" name="password" placeholder="Password" >
-                    </div>
-                </div>
-                <div class="form__error">
-                    @error('password')
-                    {{ $message }}
-                    @enderror
-                </div>
-            </div>
-            <div class="form__button">
-                <button class="form__button-submit" type="submit">登録</button>
-            </div>
-        </form>
+
+        <div class="reservation__content">
+            <h2 class="reservation__heading">予約情報</h2>
+            <!-- 店舗情報がすでにある場合 -->
+            @if (Auth::guard('representative')->user()->shop != null)
+                <form class="reservation__form" action="/representative/reservation" method="get">
+                    @csrf
+                    <input type="hidden" name="shop_id" value="{{ Auth::guard('representative')->user()->shop->id }}">
+                    <button class="reservation__form--button" type="submit">確認</button>
+                </form>
+            @endif
+        </div>
     </div>
     <!-- あとで削除 -->
     <form class="header-nav__form" action="/representative/logout" method="post">

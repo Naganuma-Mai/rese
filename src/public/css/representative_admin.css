@@ -1,0 +1,45 @@
+.admin__content {
+    padding: 25px 15px 30px;
+    background: #EEEEEE;
+    height: 89vh;
+}
+
+.admin__heading {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 31px;
+}
+
+.admin__inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1150px;
+}
+
+.shop__content,
+.reservation__content {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shop__heading,
+.reservation__heading {
+    margin: 0 0 15px 0;
+    font-size: 23px;
+}
+
+.shop__form--button,
+.reservation__form--button {
+    background: #305DFF;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 14px;
+    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+}

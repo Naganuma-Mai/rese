@@ -18,7 +18,7 @@ class AdminsTableSeeder extends Seeder
         Admin::create([
             'name' => '管理者',
             'email' => 'admin@example.com',
-            'password' => Hash::make('coachtech1106')
+            'password' => Hash::make('coachtech2001')
         ]);
     }
 }
