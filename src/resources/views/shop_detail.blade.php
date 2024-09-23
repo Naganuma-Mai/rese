@@ -18,7 +18,7 @@
                 </h2>
             </div>
             <div class="shop-detail__img">
-                <img src="{{ $shop->image }}" alt="">
+                <img src="{{ asset($shop->image) }}">
             </div>
             <div class="shop-detail__text">
                 <div class="shop-detail__tag">

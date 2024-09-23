@@ -47,18 +47,21 @@ class ShopController extends Controller
 
     public function store(Request $request)
     {
-        $request['representative_id'] = Auth::guard('representative')->id();
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
 
-        Shop::create(
-            $request->only([
-                'area_id',
-                'genre_id',
-                'representative_id',
-                'name',
-                'overview',
-                'image'
-            ])
-        );
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/images' , $file_name);
+
+        $shop = [
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'representative_id' => Auth::guard('representative')->id(),
+            'name' => $request->name,
+            'overview' => $request->overview,
+            'image' => 'storage/images/' . $file_name,
+        ];
+        Shop::create($shop);
 
         $message = "店舗情報を作成しました";
 
@@ -76,7 +79,20 @@ class ShopController extends Controller
 
     public function update(Request $request)
     {
-        $shop = $request->only(['area_id', 'genre_id', 'name', 'overview', 'image']);
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/images' , $file_name);
+
+        $shop = [
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'name' => $request->name,
+            'overview' => $request->overview,
+            'image' => 'storage/images/' . $file_name,
+        ];
+
         Shop::find($request->shop_id)->update($shop);
 
         $message = "店舗情報を更新しました";

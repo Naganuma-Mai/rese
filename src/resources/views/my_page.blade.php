@@ -98,7 +98,7 @@
                 @foreach ($like_shops as $shop)
                 <div class="shop-card">
                     <div class="shop-card__img">
-                        <img src="{{ $shop->image }}" alt="">
+                        <img src="{{ asset($shop->image) }}">
                     </div>
                     <div class="shop-card__content">
                         <h2 class="shop-card__content-ttl">

@@ -73,6 +73,15 @@
     padding: 10px;
 }
 
+.form__item--input-file::file-selector-button {
+    background: #0538FF;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 10px;
+}
+
 .form__button-submit {
     background: #0538FF;
     border: none;

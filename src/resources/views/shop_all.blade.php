@@ -34,7 +34,7 @@
         @foreach ($shops as $shop)
         <div class="card">
             <div class="card__img">
-                <img src="{{ $shop->image }}" alt="">
+                <img src="{{ asset($shop->image) }}">
             </div>
             <div class="card__content">
                 <h2 class="card__content-ttl">

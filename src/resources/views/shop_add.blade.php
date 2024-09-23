@@ -9,7 +9,7 @@
     <div class="add__inner">
         <div class="shop__form">
             <h2 class="shop__ttl">店舗情報作成</h2>
-            <form class="form" action="/representative/shops/create" method="post">
+            <form class="form" action="/representative/shops/create" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="shop__form-content">
                     <div class="shop-table">
@@ -62,7 +62,7 @@
                             <tr class="shop-table__row">
                                 <th class="shop-table__header">Image</th>
                                 <td class="shop-table__text">
-                                    <input class="form__item--input" type="text" name="image">
+                                    <input class="form__item--input-file" type="file" name="image">
                                     <!-- <div class="form__error">
                                         @error('detail')
                                         {{ $message }}
