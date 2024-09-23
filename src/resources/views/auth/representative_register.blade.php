@@ -56,10 +56,5 @@
             </div>
         </form>
     </div>
-    <!-- あとで削除 -->
-    <form class="header-nav__form" action="/admin/logout" method="post">
-        @csrf
-        <button class="header-nav__button">管理者ログアウト</button>
-    </form>
 </div>
 @endsection

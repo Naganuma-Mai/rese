@@ -1,0 +1,66 @@
+.admin__content {
+    margin: 0 auto;
+    padding: 26px 15px;
+    min-height: 89vh;
+    background: #EEEEEE;
+}
+
+.admin-header {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.admin-heading {
+    font-size: 28px;
+    margin: 0;
+}
+
+.register__form--button,
+.logout__button {
+    background: #305DFF;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 14px;
+    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.register__form--button {
+    position: absolute;
+    right: 200px;
+    bottom: 0;
+}
+
+.logout__button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.representative-table {
+    margin: 30px auto 35px;
+    width: 90%;
+    text-align: left;
+}
+
+.representative-table__inner {
+    width: 100%;
+}
+
+.representative-table__row {
+    border-top: 1px solid #909090;
+}
+
+.representative-table__header,
+.representative-table__text {
+    width: 20%;
+    padding: 18px 0 18px 70px;
+    line-height: 30px;
+}

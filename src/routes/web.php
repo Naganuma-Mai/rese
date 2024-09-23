@@ -9,6 +9,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\AdminRegisterController;
 use App\Http\Controllers\RepresentativeController;
@@ -55,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', [AdminLoginController::class, 'destroy']);
 
     Route::middleware('auth:admin')->group(function () {
+        Route::get('/admin', [AdminController::class, 'index']);
         Route::get('/representative/register', [RepresentativeRegisterController::class, 'create'])->name('admin.representative.register');
         Route::post('/representative/register', [RepresentativeRegisterController::class, 'store']);
 
