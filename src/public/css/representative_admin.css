@@ -4,10 +4,24 @@
     height: 89vh;
 }
 
+.admin-header {
+    width: 90%;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
 .admin__heading {
     font-size: 28px;
-    text-align: center;
-    margin: 0 0 31px;
+    margin: 0;
+}
+
+.logout__button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .admin__inner {
@@ -31,6 +45,7 @@
     font-size: 23px;
 }
 
+.logout__button,
 .shop__form--button,
 .reservation__form--button {
     background: #305DFF;

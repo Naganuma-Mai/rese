@@ -6,9 +6,15 @@
 
 @section('content')
 <div class="admin__content">
-    <h1 class="admin__heading">
-        {{ Auth::guard('representative')->user()->name }}さん
-    </h1>
+    <div class="admin-header">
+        <h1 class="admin__heading">
+            {{ Auth::guard('representative')->user()->name }}さん
+        </h1>
+        <form class="logout__form" action="/representative/logout" method="post">
+            @csrf
+            <button class="logout__button">店舗代表者ログアウト</button>
+        </form>
+    </div>
     <div class="admin__inner">
         <div class="shop__content">
             <h2 class="shop__heading">店舗情報</h2>
@@ -42,10 +48,5 @@
             @endif
         </div>
     </div>
-    <!-- あとで削除 -->
-    <form class="header-nav__form" action="/representative/logout" method="post">
-        @csrf
-        <button class="header-nav__button">店舗代表者ログアウト</button>
-    </form>
 </div>
 @endsection
