@@ -179,3 +179,56 @@
     height: 54px;
     font-size: 15px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .shop-detail__content {
+        padding: 0 0 50px;
+        height: auto;
+    }
+
+    .shop-detail__inner {
+        display: block;
+    }
+
+    .shop-detail__section {
+        width: 330px;
+        margin: 0 auto;
+    }
+
+    .shop-detail__img {
+        height: 280px;
+    }
+
+    .reservation__form {
+        width: 340px;
+        height: 600px;
+        margin: 70px auto 0;
+    }
+
+    .reservation__ttl {
+        margin: 0 20px 22px;
+    }
+
+    .reservation__form-content {
+        height: 465px;
+    }
+
+    .form__item {
+        margin: 13px 20px;
+    }
+
+    .form__item--input,
+    .form__item--select {
+        width: 300px;
+    }
+
+    .form__item--input-date {
+        width: 170px;
+    }
+
+    .reservation-table {
+        margin: 18px 20px 0;
+        width: 300px;
+    }
+}

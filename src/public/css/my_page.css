@@ -196,3 +196,52 @@ button.stripe-button-el>span {
     width: 31px;
     height: 31px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .my-page_inner {
+        display: block;
+    }
+
+    .reservation__content {
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .reservation__heading {
+        text-align: center;
+    }
+
+    .reservation-card__group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .reservation-card {
+        width: 340px;
+        margin: 23px 10px 0;
+    }
+
+    .reservation-card__title {
+        margin-right: 150px;
+    }
+
+    .favorite-shops__content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .favorite-shops__heading {
+        text-align: center;
+    }
+
+    .shop-card__group {
+        justify-content: center;
+    }
+
+    .shop-card {
+        margin: 23px 10px 0;
+    }
+}

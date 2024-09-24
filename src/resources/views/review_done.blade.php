@@ -8,7 +8,7 @@
 <div class="thanks__content">
     <div class="thanks__box">
         <div class="thanks__heading">
-            レビュー投稿ありがとうございます
+            レビュー投稿<br class="sp_br">ありがとうございます
         </div>
         <form class="thanks__form" action="/mypage" method="get">
             @csrf

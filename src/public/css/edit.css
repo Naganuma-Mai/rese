@@ -116,3 +116,37 @@
     height: 54px;
     font-size: 15px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .edit__content {
+        padding: 0 0 50px;
+        height: 100vh;
+    }
+
+    .reservation__form {
+        width: 340px;
+        height: 600px;
+    }
+
+    .reservation__form-content {
+        height: 445px;
+    }
+
+    .reservation-table__header {
+        padding: 15px 10px;
+    }
+
+    .reservation-table__text {
+        padding: 15px 10px;
+    }
+
+    .form__item--input,
+    .form__item--select {
+        width: 220px;
+    }
+
+    .form__item--input-date {
+        width: 170px;
+    }
+}

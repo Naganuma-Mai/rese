@@ -90,3 +90,34 @@
     height: 54px;
     font-size: 15px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .add__content {
+        padding: 0 0 50px;
+        height: 100vh;
+    }
+
+    .shop__form {
+        width: 340px;
+        height: 600px;
+    }
+
+    .shop__form-content {
+        height: 445px;
+    }
+
+    .shop-table__header {
+        padding: 15px 10px;
+    }
+
+    .shop-table__text {
+        padding: 15px 10px;
+    }
+
+    .form__item--input,
+    .form__item--select,
+    .form__item--textarea {
+        width: 250px;
+    }
+}

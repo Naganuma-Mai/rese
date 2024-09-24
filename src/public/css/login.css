@@ -92,3 +92,19 @@
     align-items: center;
     margin-top: 7px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .login__content {
+        padding: 5px 15px;
+    }
+
+    .login__box {
+        width: 330px;
+        margin: 0 auto;
+    }
+
+    .form__input--text input {
+        width: 250px;
+    }
+}

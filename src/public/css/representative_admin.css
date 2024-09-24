@@ -58,3 +58,15 @@
     font-size: 13px;
     cursor: pointer;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .admin-header {
+        margin: 0 auto 70px;
+    }
+
+    .logout__button {
+        top: 50px;
+        height: 30px;
+    }
+}

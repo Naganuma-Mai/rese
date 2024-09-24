@@ -8,7 +8,7 @@
 <div class="thanks__content">
     <div class="thanks__box">
         <div class="thanks__heading">
-            ご予約ありがとうございます
+            ご予約<br class="sp_br">ありがとうございます
         </div>
         <form class="thanks__form" action="/detail/{{ $shop_id }}" method="get">
             @csrf

@@ -17,6 +17,6 @@ class AdminRegisterResponse implements RegisterResponseContract
     {
         return $request->wantsJson()
                     ? new JsonResponse('', 201)
-                    : redirect('/admin/representative/register');
+                    : redirect('/admin/admin');
     }
 }

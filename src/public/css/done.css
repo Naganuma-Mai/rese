@@ -39,3 +39,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.sp_br {
+    display: none;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .thanks__box {
+        width: 330px;
+    }
+
+    .sp_br {
+        display: block;
+    }
+}

@@ -1,7 +1,7 @@
 .reservation__content {
     margin: 0 auto;
     padding: 26px 15px;
-    height: 89vh;
+    min-height: 89vh;
     background: #EEEEEE;
 }
 
@@ -53,4 +53,22 @@
     width: 20%;
     padding: 18px 0 18px 70px;
     line-height: 30px;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .reservation__content {
+        padding: 0 15px;
+    }
+
+    .reservation-table {
+        width: 95%;
+    }
+
+    .reservation-table__header,
+    .reservation-table__text {
+        padding: 15px 0 15px 7px;
+        line-height: 20px;
+        font-size: 11px;
+    }
 }

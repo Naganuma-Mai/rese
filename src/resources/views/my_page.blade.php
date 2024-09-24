@@ -14,82 +14,84 @@
     <div class="my-page_inner">
         <div class="reservation__content">
             <h2 class="reservation__heading">予約状況</h2>
-            @foreach ($reservations as $reservation)
-            <div class="reservation-card">
-                <div class="reservation-card__header">
-                    <img src="{{ asset('images/clock.png') }}" class="reservation-card__img" alt="">
-                    <p class="reservation-card__title">
-                        予約{{ $loop->iteration }}
-                    </p>
-                    <form class="reservation-card__form-delete" action="/delete" method="POST">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $reservation->id }}">
-                        <button class="reservation-card__button-delete" type="submit">×</button>
-                    </form>
-                </div>
-                <div class="reservation-card__table">
-                    <table class="reservation-card__table-inner">
-                        <tr class="reservation-card__table-row">
-                            <th class="reservation-card__table-header">Shop</th>
-                            <td class="reservation-card__table-text">
-                                {{ $reservation->shop->name }}
-                            </td>
-                        </tr>
-                        <tr class="reservation-card__table-row">
-                            <th class="reservation-card__table-header">Date</th>
-                            <td class="reservation-card__table-text">{{ $reservation->date }}
-                            </td>
-                        </tr>
-                        <tr class="reservation-card__table-row">
-                            <th class="reservation-card__table-header">Time</th>
-                            <td class="reservation-card__table-text">
-                                {{ substr($reservation->time, 0, 5) }}
-                            </td>
-                        </tr>
-                        <tr class="reservation-card__table-row">
-                            <th class="reservation-card__table-header">Number</th>
-                            <td class="reservation-card__table-text">{{ $reservation->number }}人
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="reservation-card__form">
-                    <form class="reservation-card__form--stripe" action="{{ asset('pay') }}" method="POST">
-                        {{ csrf_field() }}
-                        <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="{{ env('STRIPE_KEY') }}"
-                        data-amount="1000"
-                        data-name="Stripe Demo"
-                        data-label="決済"
-                        data-description="これはStripeのデモです"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto"
-                        data-currency="JPY">
-                        </script>
-                    </form>
-                    <form class="reservation-card__form--qrcode" action="/qrcode" method="get">
-                        @csrf
-                        <button class="reservation-card__button" type="submit">QRコード</button>
-                    </form>
-                    <!-- 来店後 -->
-                    @if ($reservation->isVisit())
-                        <form class="reservation-card__form--review" action="/review" method="get">
-                            @csrf
-                            <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
-                            <button class="reservation-card__button" type="submit">レビュー</button>
-                        </form>
-                    <!-- 来店前 -->
-                    @else
-                        <form class="reservation-card__form--edit" action="/edit" method="get">
+            <div class="reservation-card__group">
+                @foreach ($reservations as $reservation)
+                <div class="reservation-card">
+                    <div class="reservation-card__header">
+                        <img src="{{ asset('images/clock.png') }}" class="reservation-card__img" alt="">
+                        <p class="reservation-card__title">
+                            予約{{ $loop->iteration }}
+                        </p>
+                        <form class="reservation-card__form-delete" action="/delete" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $reservation->id }}">
-                            <button class="reservation-card__button" type="submit">編集</button>
+                            <button class="reservation-card__button-delete" type="submit">×</button>
                         </form>
-                    @endif
+                    </div>
+                    <div class="reservation-card__table">
+                        <table class="reservation-card__table-inner">
+                            <tr class="reservation-card__table-row">
+                                <th class="reservation-card__table-header">Shop</th>
+                                <td class="reservation-card__table-text">
+                                    {{ $reservation->shop->name }}
+                                </td>
+                            </tr>
+                            <tr class="reservation-card__table-row">
+                                <th class="reservation-card__table-header">Date</th>
+                                <td class="reservation-card__table-text">{{ $reservation->date }}
+                                </td>
+                            </tr>
+                            <tr class="reservation-card__table-row">
+                                <th class="reservation-card__table-header">Time</th>
+                                <td class="reservation-card__table-text">
+                                    {{ substr($reservation->time, 0, 5) }}
+                                </td>
+                            </tr>
+                            <tr class="reservation-card__table-row">
+                                <th class="reservation-card__table-header">Number</th>
+                                <td class="reservation-card__table-text">{{ $reservation->number }}人
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="reservation-card__form">
+                        <form class="reservation-card__form--stripe" action="{{ asset('pay') }}" method="POST">
+                            {{ csrf_field() }}
+                            <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="{{ env('STRIPE_KEY') }}"
+                            data-amount="1000"
+                            data-name="Stripe Demo"
+                            data-label="決済"
+                            data-description="これはStripeのデモです"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto"
+                            data-currency="JPY">
+                            </script>
+                        </form>
+                        <form class="reservation-card__form--qrcode" action="/qrcode" method="get">
+                            @csrf
+                            <button class="reservation-card__button" type="submit">QRコード</button>
+                        </form>
+                        <!-- 来店後 -->
+                        @if ($reservation->isVisit())
+                            <form class="reservation-card__form--review" action="/review" method="get">
+                                @csrf
+                                <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
+                                <button class="reservation-card__button" type="submit">レビュー</button>
+                            </form>
+                        <!-- 来店前 -->
+                        @else
+                            <form class="reservation-card__form--edit" action="/edit" method="get">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $reservation->id }}">
+                                <button class="reservation-card__button" type="submit">編集</button>
+                            </form>
+                        @endif
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
 
         <div class="favorite-shops__content">

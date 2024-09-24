@@ -17,3 +17,14 @@
     padding: 0;
     font-size: 16px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .card {
+        width: 300px;
+    }
+}

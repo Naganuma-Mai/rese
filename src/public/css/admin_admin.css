@@ -64,3 +64,40 @@
     padding: 18px 0 18px 70px;
     line-height: 30px;
 }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .admin__content {
+        padding: 0 15px 30px;
+    }
+
+    .register__form--button {
+        left: 0;
+        top: 50px;
+        height: 30px;
+        width: 130px;
+    }
+
+    .logout__button {
+        top: 50px;
+        height: 30px;
+        width: 140px;
+    }
+
+    .representative-table {
+        width: 95%;
+        margin: 60px auto 35px;
+    }
+
+    .representative-table__header,
+    .representative-table__text {
+        padding: 15px 0 15px 7px;
+        line-height: 20px;
+        font-size: 11px;
+    }
+
+    .representative-table__header:first-of-type,
+    .representative-table__text:first-of-type {
+        width: 10%;
+    }
+}
