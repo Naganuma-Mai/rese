@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class AdminsTableSeeder extends Seeder
 {
@@ -18,7 +19,9 @@ class AdminsTableSeeder extends Seeder
         $param = [
             'name' => '管理者',
             'email' => 'admin@example.com',
-            'password' => Hash::make('coachtech2001')
+            'password' => Hash::make('coachtech2001'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ];
         DB::table('admins')->insert($param);
     }
