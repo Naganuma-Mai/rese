@@ -69,7 +69,7 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 
 ## ER 図
 
-<img width="680" alt="er" src="https://github.com/user-attachments/assets/cd3c4b50-494b-45a7-8c2d-302ea29ec884">
+<img width="620" alt="er" src="https://github.com/user-attachments/assets/f0e70b62-29d4-474b-916b-6af0c992f893">
 
 ## 環境構築
 
