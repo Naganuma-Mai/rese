@@ -64,7 +64,8 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 
 ## テーブル設計
 
-<img width="641" alt="table" src="https://github.com/user-attachments/assets/303ab459-445b-4c7c-8ab7-ac80ac3d15f2">
+<img width="491" alt="table1" src="https://github.com/user-attachments/assets/cc1b8171-53b7-4e2f-b182-c5a84faa6132">
+<img width="492" alt="table2" src="https://github.com/user-attachments/assets/1100cb5f-8d8f-430d-a18a-504e059751b1">
 
 ## ER 図
 
