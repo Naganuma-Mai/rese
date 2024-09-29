@@ -2,7 +2,7 @@
 
 Reseはある企業のグループ会社の飲食店予約サービスです
 
-<img width="1425" alt="shop_all" src="https://github.com/user-attachments/assets/98452c9b-5eea-43f6-bd7c-0c66ecce9011">
+<img width="1423" alt="shop_all" src="https://github.com/user-attachments/assets/2f1a6797-0c91-41b3-88aa-8a36d41a0435">
 
 ## 作成した目的
 
