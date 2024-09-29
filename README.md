@@ -2,7 +2,7 @@
 
 Reseはある企業のグループ会社の飲食店予約サービスです
 
-<img width="1440" alt="stamp" src="https://github.com/user-attachments/assets/cf8a9fb3-b830-4523-a2f7-75d0c5097c05">
+<img width="1425" alt="shop_all" src="https://github.com/user-attachments/assets/98452c9b-5eea-43f6-bd7c-0c66ecce9011">
 
 ## 作成した目的
 
@@ -49,7 +49,6 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 - 店舗代表者ログイン機能
 - 店舗代表者ログアウト機能
 - 店舗情報作成機能
-- 店舗画像ストレージ保存機能
 - 店舗情報更新機能
 - 店舗代表者飲食店予約情報取得機能
 
@@ -79,7 +78,7 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 2. DockerDesktop アプリを立ち上げる
 3. `docker-compose up -d --build`
 
-> MySQL 等は、OS によって起動しない場合があるのでそれぞれのPCに合わせて docker-compose.ymlファイルを編集してください。
+> MySQL等は、OSによって起動しない場合があるのでそれぞれのPCに合わせて docker-compose.ymlファイルを編集してください。
 
 **Laravel 環境構築**
 
