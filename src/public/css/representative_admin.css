@@ -18,6 +18,12 @@
     margin: 0;
 }
 
+.mail__form--button {
+    position: absolute;
+    right: 200px;
+    bottom: 0;
+}
+
 .logout__button {
     position: absolute;
     right: 0;
@@ -45,6 +51,7 @@
     font-size: 23px;
 }
 
+.mail__form--button,
 .logout__button,
 .shop__form--button,
 .reservation__form--button {
@@ -63,6 +70,13 @@
 @media screen and (max-width: 768px) {
     .admin-header {
         margin: 0 auto 70px;
+    }
+
+    .mail__form--button {
+        left: 0;
+        top: 50px;
+        height: 30px;
+        width: 95px;
     }
 
     .logout__button {

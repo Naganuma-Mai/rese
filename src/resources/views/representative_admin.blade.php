@@ -10,6 +10,12 @@
         <h1 class="admin__heading">
             {{ Auth::guard('representative')->user()->name }}さん
         </h1>
+        <div class="mail-form">
+            <form action="/representative/mail" method="get">
+                @csrf
+                <button class="mail__form--button" type="submit">メール送信</button>
+            </form>
+        </div>
         <form class="logout__form" action="/representative/logout" method="post">
             @csrf
             <button class="logout__button">店舗代表者ログアウト</button>

@@ -1,0 +1,101 @@
+.mail__content {
+    background: #EEEEEE;
+    height: 89vh;
+}
+
+.mail__inner {
+    margin: 0 auto;
+}
+
+.mail__form {
+    width: 700px;
+    height: 620px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px #747474;
+    margin: 0 auto;
+    background: #305DFF;
+    padding: 28px 0 0;
+}
+
+.mail__ttl {
+    color: #FFFFFF;
+    font-size: 22px;
+    margin: 0 26px 40px;
+}
+
+.mail__form-content {
+    height: 465px;
+}
+
+.mail-table__inner {
+    width: 100%;
+}
+
+.mail-table__header {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 15px 30px;
+    width: 30%;
+    text-align: left;
+}
+
+.mail-table__text {
+    color: #FFFFFF;
+    font-size: 15px;
+    padding: 15px 30px;
+}
+
+.form__item--input,
+.form__item--textarea {
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    width: 475px;
+}
+
+.form__item--textarea {
+    height: 150px;
+    padding: 10px;
+}
+
+.form__button-submit {
+    background: #0538FF;
+    border: none;
+    color: #FFFFFF;
+    width: 100%;
+    height: 54px;
+    font-size: 15px;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .mail__content {
+        padding: 0 0 50px;
+        height: 100vh;
+    }
+
+    .mail__form {
+        width: 340px;
+        height: 600px;
+    }
+
+    .mail__form-content {
+        height: 445px;
+    }
+
+    .mail-table__header {
+        padding: 15px 10px;
+    }
+
+    .mail-table__text {
+        padding: 15px 10px;
+    }
+
+    .form__item--input,
+    .form__item--textarea {
+        width: 250px;
+    }
+}

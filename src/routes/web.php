@@ -77,5 +77,7 @@ Route::prefix('representative')->group(function () {
         Route::get('/shops/update', [ShopController::class, 'edit']);
         Route::post('/shops/update', [ShopController::class, 'update']);
         Route::get('/reservation', [ReservationController::class, 'search']);
+        Route::get('/mail', [RepresentativeController::class, 'writeMail']);
+        Route::post('/mail', [RepresentativeController::class, 'sendMail']);
     });
 });

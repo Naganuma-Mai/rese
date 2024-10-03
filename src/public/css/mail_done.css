@@ -1,0 +1,56 @@
+.done__content {
+    margin: 0 auto;
+    padding: 26px 15px;
+    height: 89vh;
+    background: #EEEEEE;
+}
+
+.done__box {
+    width: 430px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #9f9f9f, -0.5px -0.5px 2px #d4d4d4;
+    margin: 0 auto;
+    padding: 91px 20px 96px;
+}
+
+.done__heading {
+    font-size: 22px;
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.done__form-item {
+    display: flex;
+    justify-content: center;
+}
+
+.done__form-button {
+    padding: 10px;
+    width: 55px;
+    height: 30px;
+    background: #305DFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sp_br {
+    display: none;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .done__box {
+        width: 330px;
+    }
+
+    .sp_br {
+        display: block;
+    }
+}
