@@ -33,6 +33,19 @@ class Shop extends Model
         return $this->belongsTo(Representative::class);
     }
 
+    public function likes() {
+        return $this->hasMany(Like::class);
+    }
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function scopeAreaSearch($query, $area_id)
     {
         if (!empty($area_id)) {
