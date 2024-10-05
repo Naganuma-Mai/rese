@@ -25,22 +25,12 @@
                                 <th class="reservation-table__header">Date</th>
                                 <td class="reservation-table__text">
                                     <input class="form__item--input form__item--input-date" type="date" name="date" value="{{ $reservation->date }}">
-                                    <!-- <div class="form__error">
-                                        @error('gender')
-                                        {{ $message }}
-                                        @enderror
-                                    </div> -->
                                 </td>
                             </tr>
                             <tr class="reservation-table__row">
                                 <th class="reservation-table__header">Time</th>
                                 <td class="reservation-table__text">
                                     <input class="form__item--input form__item--input-time" type="time" name="time" value="{{ $reservation->time }}">
-                                    <!-- <div class="form__error">
-                                        @error('detail')
-                                        {{ $message }}
-                                        @enderror
-                                    </div> -->
                                 </td>
                             </tr>
                             <tr class="reservation-table__row">
@@ -53,11 +43,6 @@
                                             $i }}人</option>
                                         @endfor
                                     </select>
-                                        <!-- <div class="form__error">
-                                            @error('category_id')
-                                            {{ $message }}
-                                            @enderror
-                                        </div> -->
                                 </td>
                             </tr>
                         </table>
@@ -74,9 +59,7 @@
                         @endif
                     </div>
                 </div>
-                <!-- <div class="form__button"> -->
-                    <button class="form__button-submit" type="submit">変更する</button>
-                <!-- </div> -->
+                <button class="form__button-submit" type="submit">変更する</button>
             </form>
         </div>
     <div>

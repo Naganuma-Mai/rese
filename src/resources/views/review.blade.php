@@ -31,29 +31,17 @@
                                             $i }}点</option>
                                         @endfor
                                     </select>
-                                        <!-- <div class="form__error">
-                                            @error('category_id')
-                                            {{ $message }}
-                                            @enderror
-                                        </div> -->
                                 </td>
                             </tr>
                             <tr class="review-table__row">
                                 <th class="review-table__header">Comment</th>
                                 <td class="review-table__text">
                                     <textarea class="form__item--textarea" name="comment" placeholder="コメントをご記載ください">{{ old('comment') }}</textarea>
-                                    <!-- <div class="form__error">
-                                        @error('gender')
-                                        {{ $message }}
-                                        @enderror
-                                    </div> -->
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <!-- <div class="form__button"> -->
-                        <button class="form__button-submit" type="submit">投稿する</button>
-                    <!-- </div> -->
+                    <button class="form__button-submit" type="submit">投稿する</button>
                 </form>
             </div>
         </div>

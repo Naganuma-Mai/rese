@@ -40,19 +40,9 @@
                     <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                     <div class="form__item">
                         <input id="input_date" class="form__item--input form__item--input-date" type="date" name="date">
-                        <!-- <div class="form__error">
-                            @error('gender')
-                            {{ $message }}
-                            @enderror
-                        </div> -->
                     </div>
                     <div class="form__item">
                         <input id="input_time" class="form__item--input form__item--input-time" type="time" name="time">
-                        <!-- <div class="form__error">
-                            @error('detail')
-                            {{ $message }}
-                            @enderror
-                        </div> -->
                     </div>
                     <div class="form__item">
                         <select id="select_number" class="form__item--select" name="number">
@@ -62,11 +52,6 @@
                                 $i }}人</option>
                             @endfor
                         </select>
-                            <!-- <div class="form__error">
-                                @error('category_id')
-                                {{ $message }}
-                                @enderror
-                            </div> -->
                     </div>
 
                     <div class="reservation-table">
@@ -106,9 +91,7 @@
                         @endif
                     </div>
                 </div>
-                <!-- <div class="form__button"> -->
-                    <button class="form__button-submit" type="submit">予約する</button>
-                <!-- </div> -->
+                <button class="form__button-submit" type="submit">予約する</button>
             </form>
         </div>
     </div>
@@ -130,22 +113,4 @@
         document.getElementById("number").textContent = number + "人";
     }
 </script>
-
-<!-- <script>
-    let element = document.getElementById( "input_date" ) ;
-    element.onchange = function(){
-        let date = this.value ;
-        document.getElementById("date").textContent = date;
-    }
-    let element = document.getElementById( "input_time" ) ;
-    element.onchange = function(){
-        let time = this.value ;
-        document.getElementById("time").textContent = time;
-    }
-    let element = document.getElementById( "select_number" ) ;
-    element.onchange = function(){
-        let number = this.value ;
-        document.getElementById("number").textContent = number + "人";
-    }
-</script> -->
 @endsection

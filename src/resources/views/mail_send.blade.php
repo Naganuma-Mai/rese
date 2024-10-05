@@ -18,41 +18,18 @@
                                 <th class="mail-table__header">件名</th>
                                 <td class="mail-table__text">
                                     <input class="form__item--input" type="text" name="subject">
-                                    <!-- <div class="form__error">
-                                        @error('detail')
-                                        {{ $message }}
-                                        @enderror
-                                    </div> -->
                                 </td>
                             </tr>
                             <tr class="mail-table__row">
                                 <th class="mail-table__header">本文</th>
                                 <td class="mail-table__text">
                                     <textarea class="form__item--textarea" name="content"></textarea>
-                                    <!-- <div class="form__error">
-                                        @error('detail')
-                                        {{ $message }}
-                                        @enderror
-                                    </div> -->
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <!-- <div class="reservation__alert">
-                        @if ($errors->any())
-                            <div class="reservation__alert--danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div> -->
                 </div>
-                <!-- <div class="form__button"> -->
-                    <button class="form__button-submit" type="submit">送信する</button>
-                <!-- </div> -->
+                <button class="form__button-submit" type="submit">送信する</button>
             </form>
         </div>
     <div>

@@ -49,7 +49,6 @@
                     <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
                         @csrf
                         <div class="form__item">
-                            <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
                             <button class="card__content-button" type="submit">詳しくみる</button>
                         </div>
                     </form>

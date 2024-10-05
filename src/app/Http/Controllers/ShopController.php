@@ -12,7 +12,6 @@ class ShopController extends Controller
 {
     public function index()
     {
-        //$shops = Shop::all();
         $shops = Shop::with(['area', 'genre'])->get();
         $areas = Area::all();
         $genres = Genre::all();
@@ -32,7 +31,6 @@ class ShopController extends Controller
     public function detail($shop_id)
     {
         $shop = Shop::find($shop_id);
-        // $shops = Shop::with(['area', 'genre'])->get();
 
         return view('shop_detail', compact('shop'));
     }

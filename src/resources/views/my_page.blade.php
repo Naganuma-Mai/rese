@@ -114,10 +114,7 @@
                         <div class="shop-card__content-footer">
                             <form class="shop-card__content-form" action="/detail/{{ $shop->id }}" method="get">
                                 @csrf
-                                <!-- <div class="form__item"> -->
-                                    <!-- <input type="hidden" name="shop_id" value="{{ $shop->id }}"> -->
-                                    <button class="shop-card__content-button" type="submit">詳しくみる</button>
-                                <!-- </div> -->
+                                <button class="shop-card__content-button" type="submit">詳しくみる</button>
                             </form>
                             <!-- お気に入りにしていないお店 -->
                             @if (!Auth::user()->isLike($shop->id))
