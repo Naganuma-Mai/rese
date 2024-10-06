@@ -9,7 +9,7 @@
 
 .review__form {
     width: 700px;
-    height: 620px;
+    height: 580px;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 2px 2px 4px #747474;
@@ -28,7 +28,7 @@
 }
 
 .review-table {
-    height: 465px;
+    height: 425px;
 }
 
 .review-table__inner {

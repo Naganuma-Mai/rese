@@ -9,7 +9,7 @@
 
 .shop__form {
     width: 700px;
-    height: 620px;
+    height: 580px;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 2px 2px 4px #747474;
@@ -21,11 +21,11 @@
 .shop__ttl {
     color: #FFFFFF;
     font-size: 22px;
-    margin: 0 26px 40px;
+    margin: 0 26px 20px;
 }
 
 .shop__form-content {
-    height: 465px;
+    height: 445px;
 }
 
 .shop-table__inner {
@@ -104,7 +104,7 @@
     }
 
     .shop__form-content {
-        height: 445px;
+        height: 465px;
     }
 
     .shop-table__header {

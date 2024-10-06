@@ -65,7 +65,7 @@
 
 .reservation__form {
     width: 550px;
-    height: 672px;
+    height: 630px;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 2px 2px 4px #747474;
@@ -81,7 +81,7 @@
 }
 
 .reservation__form-content {
-    height: 535px;
+    height: 493px;
 }
 
 .form__item {
