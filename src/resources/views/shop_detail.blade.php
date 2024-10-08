@@ -24,7 +24,6 @@
                 <div class="shop-detail__tag">
                     <p class="shop-detail__tag-item">#{{ $shop->area->name }}</p>
                     <p class="shop-detail__tag-item shop-detail__tag-last">#{{ $shop->genre->name }}</p>
-                    </p>
                 </div>
                 <p class="shop-detail__text-overview">
                     {{ $shop->overview }}

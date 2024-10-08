@@ -38,7 +38,8 @@
                             </tr>
                             <tr class="reservation-card__table-row">
                                 <th class="reservation-card__table-header">Date</th>
-                                <td class="reservation-card__table-text">{{ $reservation->date }}
+                                <td class="reservation-card__table-text">
+                                    {{ $reservation->date }}
                                 </td>
                             </tr>
                             <tr class="reservation-card__table-row">
@@ -49,7 +50,8 @@
                             </tr>
                             <tr class="reservation-card__table-row">
                                 <th class="reservation-card__table-header">Number</th>
-                                <td class="reservation-card__table-text">{{ $reservation->number }}人
+                                <td class="reservation-card__table-text">
+                                    {{ $reservation->number }}人
                                 </td>
                             </tr>
                         </table>
@@ -109,7 +111,6 @@
                         <div class="shop-card__content-tag">
                             <p class="shop-card__content-tag-item">#{{ $shop->area->name }}</p>
                             <p class="shop-card__content-tag-item">#{{ $shop->genre->name }}</p>
-                            </p>
                         </div>
                         <div class="shop-card__content-footer">
                             <form class="shop-card__content-form" action="/detail/{{ $shop->id }}" method="get">

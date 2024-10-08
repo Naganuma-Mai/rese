@@ -20,7 +20,9 @@
                                 <td class="shop-table__text">
                                     <select class="form__item--select" name="area_id">
                                         @foreach ($areas as $area)
-                                            <option value="{{ $area->id }}" @if( $shop->area_id==$area->id ) selected @endif>{{ $area->name }}</option>
+                                            <option value="{{ $area->id }}" @if( $shop->area_id==$area->id ) selected @endif>
+                                                {{ $area->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -28,10 +30,11 @@
                             <tr class="shop-table__row">
                                 <th class="shop-table__header">Genre</th>
                                 <td class="shop-table__text">
-                                    <select
-                                    class="form__item--select" name="genre_id">
+                                    <select class="form__item--select" name="genre_id">
                                         @foreach ($genres as $genre)
-                                            <option value="{{ $genre->id }}" @if( $shop->genre_id==$genre->id ) selected @endif>{{ $genre->name }}</option>
+                                            <option value="{{ $genre->id }}" @if( $shop->genre_id==$genre->id ) selected @endif>
+                                                {{ $genre->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </td>

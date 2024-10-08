@@ -13,13 +13,17 @@
         <select onchange="submit(this.form)" class="search-form__item-select" name="area_id">
             <option value="" selected>All area</option>
             @foreach ($areas as $area)
-                <option value="{{ $area->id }}" @if( request('area_id')==$area->id ) selected @endif>{{ $area->name }}</option>
+                <option value="{{ $area->id }}" @if( request('area_id')==$area->id ) selected @endif>
+                    {{ $area->name }}
+                </option>
             @endforeach
         </select>
         <select onchange="submit(this.form)" class="search-form__item-select" name="genre_id">
             <option value="" selected>All genre</option>
             @foreach ($genres as $genre)
-                <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>{{ $genre->name }}</option>
+                <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>
+                    {{ $genre->name }}
+                </option>
             @endforeach
         </select>
         <img src="{{ asset('images/search.png') }}" class="search-form__item-img" alt="">
@@ -43,7 +47,6 @@
                 <div class="card__content-tag">
                     <p class="card__content-tag-item">#{{ $shop->area->name }}</p>
                     <p class="card__content-tag-item">#{{ $shop->genre->name }}</p>
-                    </p>
                 </div>
                 <div class="card__content-footer">
                     <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
