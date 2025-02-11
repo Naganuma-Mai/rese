@@ -41,8 +41,10 @@ Route::middleware(['auth:web', 'verified'])->group(function () {
     Route::post('/edit', [ReservationController::class, 'update']);
     Route::post('/delete', [ReservationController::class, 'destroy']);
     Route::get('/qrcode', [ReservationController::class, 'showQrCode']);
-    Route::get('/review', [ReviewController::class, 'index']);
-    Route::post('/review', [ReviewController::class, 'store']);
+    Route::get('/reviews/create/{shop_id}', [ReviewController::class, 'add']);
+    Route::post('/reviews/store/{shop_id}', [ReviewController::class, 'store']);
+    Route::get('/reviews/edit/{shop_id}', [ReviewController::class, 'edit']);
+    Route::post('/reviews/delete/{shop_id}', [ReviewController::class, 'destroyForUser']);
     Route::post('/pay', [PaymentController::class, 'pay']);
 });
 
@@ -61,6 +63,9 @@ Route::prefix('admin')->group(function () {
         Route::post('/representative/register', [RepresentativeRegisterController::class, 'store']);
 
         Route::get('/representative/done', [RepresentativeRegisterController::class, 'showDone']);
+
+        Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
+        Route::post('/reviews/delete', [ReviewController::class, 'destroyForAdmin']);
     });
 });
 

@@ -1,17 +1,20 @@
 .shop-detail__content {
     background: #EEEEEE;
-    height: 89vh;
+    min-height: 89vh;
+    padding-bottom: 20px;
 }
 
 .shop-detail__inner {
-    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     max-width: 1190px;
 }
 
 .shop-detail__section {
-    width: 550px;
+    max-width: 550px;
     margin-top: 38px;
+    margin-left: 50px;
+    width: 42%;
 }
 
 .shop-detail__header {
@@ -36,13 +39,14 @@
 }
 
 .shop-detail__img {
-    height: 365px;
+    height: auto;
 }
 
 .shop-detail__img img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 640px;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .shop-detail__tag {
@@ -63,8 +67,63 @@
     margin: 10px 0;
 }
 
+.review-ttl {
+    background: #305DFF;
+    color: #FFFFFF;
+    text-align: center;
+    height: 40px;
+}
+
+.review-form__button {
+    text-align: right;
+}
+
+.review__group {
+    border-top: 2px solid #ccc;
+}
+
+.review-form__group {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+}
+
+.review-form__button--submit {
+    text-decoration: underline;
+    border: none;
+    font-size: 15px;
+}
+
+.review__group-item {
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.review__star--content {
+    color: #305DFF;
+    font-size: 35px;
+    padding: 0 3px;
+}
+
+.review__img {
+    height: auto;
+}
+
+.review__img img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.review-link {
+    color: #000000;
+}
+
 .reservation__form {
-    width: 550px;
+    width: 42%;
+    max-width: 550px;
+    min-width: 300px;
     height: 630px;
     border-radius: 5px;
     overflow: hidden;
@@ -72,6 +131,10 @@
     margin: -51px 0 0 90px;
     background: #305DFF;
     padding: 28px 0 0;
+    /* 画面右側に固定（画面幅を超えないように調整） */
+    position: fixed;
+    top: 150px;
+    right: 50px;
 }
 
 .reservation__ttl {
@@ -85,7 +148,7 @@
 }
 
 .form__item {
-    margin: 13px 26px;
+    margin: 13px 18px;
 }
 
 .form__item--input,
@@ -94,7 +157,8 @@
     border: none;
     height: 30px;
     padding: 0 10px;
-    width: 475px;
+    max-width: 475px;
+    width: 95%;
 }
 
 .form__item--input-date {
@@ -141,8 +205,9 @@
     border-radius: 5px;
     padding: 21px 20px;
     text-align: left;
-    margin: 18px 26px 0;
-    width: 460px;
+    margin: 18px;
+    max-width: 460px;
+    width: 85%;
 }
 
 .reservation-table__header {
@@ -192,18 +257,18 @@
     }
 
     .shop-detail__section {
-        width: 330px;
+        min-width: 305px;
+        padding: 0 5px;
+        width: 80%;
         margin: 0 auto;
     }
 
-    .shop-detail__img {
-        height: 280px;
-    }
-
     .reservation__form {
-        width: 340px;
+        min-width: 295px;
         height: 600px;
         margin: 70px auto 0;
+        position: static;
+        width: 80%;
     }
 
     .reservation__ttl {
@@ -214,21 +279,13 @@
         height: 465px;
     }
 
-    .form__item {
-        margin: 13px 20px;
-    }
-
-    .form__item--input,
+    .form__item--input-time,
     .form__item--select {
-        width: 300px;
-    }
-
-    .form__item--input-date {
-        width: 170px;
+        min-width: 260px;
     }
 
     .reservation-table {
-        margin: 18px 20px 0;
-        width: 300px;
+        margin: 18px 18px 0;
+        min-width: 260px;
     }
 }

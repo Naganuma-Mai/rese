@@ -1,112 +1,256 @@
 .review__content {
     background: #EEEEEE;
-    height: 89vh;
+    min-height: 89vh;
+    padding-bottom: 30px;
 }
 
 .review__inner {
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
+    max-width: 1150px;
+}
+
+.shop__content {
+    margin-top: 50px;
+    border-right: 2px solid #ccc;
+    height: 420px;
+    padding-right: 40px;
+    max-width: 420px;
+    min-width: 345px;
+    width: 40%;
+}
+
+.review__ttl-message {
+    font-size: 32px;
+    margin: 0;
+}
+
+.card {
+    width: 290px;
+    margin: 25px 6px 0;
+    box-shadow: 3px 3px 3px #9f9f9f;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 270px;
+}
+
+.card__img {
+    height: 143px;
+}
+
+.card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__content {
+    padding: 18px 20px;
+    background: #FFFFFF;
+    height: 135px;
+}
+
+.card__content-ttl {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card__content-tag {
+    font-size: 14px;
+}
+
+.card__content-tag-item {
+    /* 横並びにするためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 12px;
+    margin: 0;
+}
+
+.card__content-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__content-button {
+    background: #305DFF;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 14px;
+    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.card__content-img {
+    width: 31px;
+    height: 31px;
 }
 
 .review__form {
-    width: 700px;
-    height: 580px;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 2px 2px 4px #747474;
-    margin: 0 auto;
+    max-width: 550px;
+    width: 40%;
+    margin-left: 50px;
 }
 
-.review__form-content {
-    background: #305DFF;
-    padding: 28px 0 0;
+.review__form-item {
+    margin: 0;
+    margin-bottom: 30px;
 }
 
-.review__ttl {
-    color: #FFFFFF;
-    font-size: 22px;
-    margin: 0 26px 40px;
+.review__form-ttl {
+    color: #000000;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
-.review-table {
-    height: 425px;
+.form__error {
+    color: #ff0000;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
-.review-table__inner {
+.review__form-rating {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.form-rating__input {
+    display: none;
+}
+
+.form-rating__label {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 35px;
+    padding: 0 4px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.form-rating__label:hover,
+.form-rating__label:hover~.form-rating__label,
+.form-rating__input:checked~.form-rating__label {
+    /* 「~」でホバー時を動的に、チェック時にそれ以下の数字をもつスターの色も変化 */
+    color: #305DFF;
+}
+
+.review__form--textarea {
+    height: 130px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: transparent;
     width: 100%;
 }
 
-.review-table__header {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-weight: normal;
-    padding: 15px 30px;
-    width: 30%;
-    text-align: left;
+.review__form--textarea__annotation {
+    font-size: 13px;
+    margin: 0;
+    text-align: right;
 }
 
-.review-table__text {
-    color: #FFFFFF;
-    font-size: 15px;
-    padding: 15px 30px;
+.review__form--drop-area {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    background: #FFFFFF;
+    /* 画像がはみ出さないようにする */
+    height: 200px;
+    /* 高さを固定 */
+    overflow: hidden;
+    /* 画像がはみ出さないように */
 }
 
-.form__item--input,
-.form__item--select,
-.form__item--textarea {
-    border-radius: 5px;
-    border: none;
-    height: 30px;
-    padding: 0 10px;
-    width: 475px;
+.drop-area.highlight {
+    background-color: #f0f0f0;
 }
 
-.form__item--select {
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("../images/select.png");
-    background-repeat: no-repeat;
-    /* 画像のサイズ（幅 高さ）*/
-    background-size: 14px 9px;
-    /* 画像の位置 */
-    background-position: right 9px center;
+.upload-message {
+    margin-top: 70px;
 }
 
-.form__item--textarea {
-    height: 150px;
-    padding: 10px;
+.upload-message__last {
+    font-size: 13px;
+}
+
+.gallery {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.preview {
+    width: 100%;
+    height: 100%;
+    display: none;
+    object-fit: cover;
+    /* 画像を枠に合わせて調整 */
+    position: absolute;
+    /* 画像を `drop-area` 内に配置 */
+    top: 0;
+    left: 0;
+}
+
+.form__button {
+    text-align: center;
 }
 
 .form__button-submit {
-    background: #0538FF;
+    background: #FFFFFF;
     border: none;
-    color: #FFFFFF;
-    width: 100%;
-    height: 54px;
+    color: #000000;
+    width: 35%;
+    height: 45px;
     font-size: 15px;
+    border-radius: 30px;
 }
 
 /* レスポンシブ */
 @media screen and (max-width: 768px) {
     .review__content {
         padding: 0 0 50px;
-        height: 100vh;
+    }
+
+    .review__inner {
+        display: block;
+    }
+
+    .shop__content {
+        padding-right: 0px;
+        min-width: 305px;
+        width: 100%;
+        padding: 0 5px;
+        border-right: none;
+        border-bottom: 2px solid #ccc;
+        margin: 0 auto;
+    }
+
+    .card {
+        margin: 25px auto 0;
     }
 
     .review__form {
-        width: 340px;
+        width: 305px;
+        margin: 30px auto 0;
+        padding: 0 5px;
     }
 
-    .review-table__header {
-        padding: 15px 10px;
-    }
-
-    .review-table__text {
-        padding: 15px 10px;
-    }
-
-    .form__item--input,
-    .form__item--select,
-    .form__item--textarea {
-        width: 220px;
+    .form__button-submit {
+        width: 305px;
     }
 }

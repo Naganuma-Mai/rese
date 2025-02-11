@@ -29,6 +29,70 @@
                     {{ $shop->overview }}
                 </p>
             </div>
+            <!-- 管理者としてログインしている場合 -->
+            @if (Auth::guard('admin')->check())
+                <h2 class="review-ttl">全ての口コミ情報</h2>
+                <div class="review__group">
+                    @foreach ($shop->reviews as $review)
+                    <div class="review__group-item">
+                        <form class="review__form-delete" action="/admin/reviews/delete" method="POST">
+                            @csrf
+                            <input type="hidden" name="review_id" value="{{ $review->id }}">
+                            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                            <div class="review-form__button">
+                                <button class="review-form__button--submit" type="submit">口コミを削除</button>
+                            </div>
+                        </form>
+                        <div class="review__star">
+                            @for ($i = 0; $i < $review->star; $i++)
+                                <span class="review__star--content">★</span>
+                            @endfor
+                        </div>
+                        <div class="review__comment">{{ $review->comment }}</div>
+                        <div class="review__img">
+                            <img src="{{ asset( $review->image ) }}">
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            <!-- ユーザーとしてログインしている場合 -->
+            @elseif (Auth::check())
+                <!-- 来店後 -->
+                @if ($shop->isVisit($shop->id))
+                    <!-- 口コミがすでに投稿されている場合 -->
+                    @if ($shop->isReview($shop->id))
+                        <h2 class="review-ttl">全ての口コミ情報</h2>
+                        <div class="review__group">
+                            <div class="review-form__group">
+                                <form class="review__form-edit" action="/reviews/edit/{{ $shop->id }}" method="get">
+                                    @csrf
+                                    <button class="review-form__button--submit" type="submit">口コミを編集</button>
+                                </form>
+                                <form class="review__form-delete" action="/reviews/delete/{{ $shop->id }}" method="POST">
+                                    @csrf
+                                    <button class="review-form__button--submit" type="submit">口コミを削除</button>
+                                </form>
+                            </div>
+                            @foreach ($shop->reviews as $review)
+                            <div class="review__group-item">
+                                <div class="review__star">
+                                    @for ($i = 0; $i < $review->star; $i++)
+                                        <span class="review__star--content">★</span>
+                                    @endfor
+                                </div>
+                                <div class="review__comment">{{ $review->comment }}</div>
+                                <div class="review__img">
+                                    <img src="{{ asset( $review->image ) }}">
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    <!-- 口コミがまだ投稿されていない場合 -->
+                    @else
+                        <a class="review-link" href="/reviews/create/{{ $shop->id }}">口コミを投稿する</a>
+                    @endif
+                @endif
+            @endif
         </div>
 
         <div class="reservation__form">

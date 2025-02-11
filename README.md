@@ -35,7 +35,10 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 - 飲食店予約情報削除機能
 - 飲食店予約情報変更機能
 - 飲食店予約情報リマインダー機能
-- 飲食店評価機能
+- 口コミ追加機能
+> 店舗来店予定日時以降から口コミ機能を利用することが可能です。
+- 口コミ編集機能
+- ユーザー口コミ削除機能
 - QRコード発行機能
 - 決済機能
 - エリアで検索する機能
@@ -44,6 +47,7 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 - 管理者登録機能
 - 管理者ログイン機能
 - 管理者ログアウト機能
+- 管理者口コミ削除機能
 - 店舗代表者一覧取得機能
 - 店舗代表者登録機能
 - 店舗代表者ログイン機能
@@ -60,13 +64,12 @@ Reseはある企業のグループ会社の飲食店予約サービスです
 - MySQL8.0.26
 
 ## テーブル設計
-
-<img width="491" alt="table1" src="https://github.com/user-attachments/assets/cc1b8171-53b7-4e2f-b182-c5a84faa6132">
-<img width="492" alt="table2" src="https://github.com/user-attachments/assets/1100cb5f-8d8f-430d-a18a-504e059751b1">
+<img width="684" alt="Image" src="https://github.com/user-attachments/assets/acb3b2bd-f889-4928-9ece-30c3f79aeaef" />
+<img width="683" alt="Image" src="https://github.com/user-attachments/assets/99ce4b2b-7d1b-4bf5-8543-b1cb0521d867" />
+<img width="684" alt="Image" src="https://github.com/user-attachments/assets/0ec86001-bb76-4f3a-94a3-285899f134ee" />
 
 ## ER 図
-
-<img width="620" alt="er" src="https://github.com/user-attachments/assets/f0e70b62-29d4-474b-916b-6af0c992f893">
+<img width="623" alt="Image" src="https://github.com/user-attachments/assets/9f2c34b8-8637-4cfe-8149-5a1636e4cc58" />
 
 ## 環境構築
 
