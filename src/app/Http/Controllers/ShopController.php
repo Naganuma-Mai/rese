@@ -21,7 +21,26 @@ class ShopController extends Controller
 
     public function search(Request $request)
     {
-        $shops = Shop::with(['area', 'genre'])->AreaSearch($request->area_id)->GenreSearch($request->genre_id)->KeywordSearch($request->keyword)->get();
+        $shops = Shop::with(['area', 'genre'])->AreaSearch($request->area_id)->GenreSearch($request->genre_id)->KeywordSearch($request->keyword);
+
+        if ($request->sort === 'descending') {
+            // 評価が高い順（NULLは最後）
+            $shops->leftJoin('reviews', 'shops.id', '=', 'reviews.shop_id')
+                ->selectRaw('shops.*, COALESCE(AVG(reviews.star), NULL) as average_rating')
+                ->groupBy('shops.id')
+                ->orderByRaw('average_rating IS NULL ASC, average_rating DESC');
+        } elseif ($request->sort === 'ascending') {
+            // 評価が低い順（NULLは最後）
+            $shops->leftJoin('reviews', 'shops.id', '=', 'reviews.shop_id')
+                ->selectRaw('shops.*, COALESCE(AVG(reviews.star), NULL) as average_rating')
+                ->groupBy('shops.id')
+                ->orderByRaw('average_rating IS NULL ASC, average_rating ASC');
+        } else {
+            // ランダム並び替え
+            $shops->inRandomOrder();
+        }
+
+        $shops = $shops->get();
         $areas = Area::all();
         $genres = Genre::all();
 

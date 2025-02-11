@@ -104,4 +104,16 @@ class Shop extends Model
 
         return $exists;
     }
+
+    public function averageRating() {
+        // reviews リレーションから score の平均を取得
+        $average_star = $this->reviews()->avg('star');
+
+        if ($average_star === null) {
+            return "投稿なし";
+        }
+
+        // 小数点2桁で表示（例: 5 → 5.00, 4.2 → 4.20）
+        return number_format(round($average_star, 2), 2);
+    }
 }

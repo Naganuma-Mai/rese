@@ -1,11 +1,15 @@
 .search-form__item {
     background: #FFFFFF;
     border-radius: 5px;
-    width: 590px;
+    width: 800px;
     height: 47px;
     box-shadow: 3px 3px 3px #9f9f9f;
     margin-right: 64px;
     padding: 0 10px;
+}
+
+.search-form__item-label {
+    font-size: 14px;
 }
 
 .search-form__item-select {
@@ -22,6 +26,10 @@
     border: none;
     border-right: 1px solid #EEEEEE;
     padding: 1px 5px;
+}
+
+.search-form__item-select--sort {
+    width: 120px;
 }
 
 .search-form__item-img {
@@ -49,6 +57,13 @@
     flex-wrap: wrap;
 }
 
+.search-information {
+    width: 85%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
 .card {
     width: 290px;
     margin: 25px 6px 0;
@@ -74,10 +89,27 @@
     height: 135px;
 }
 
+.card__content-header {
+    display: flex;
+}
+
 .card__content-ttl {
     font-size: 17px;
     font-weight: bold;
     margin: 0;
+}
+
+.icon-star {
+    color: #FFE500;
+    font-size: 14px;
+}
+
+.average-rating {
+    font-size: 14px;
+}
+
+.average-rating__small {
+    font-size: 9px;
 }
 
 .card__content-tag {

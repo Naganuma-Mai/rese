@@ -10,6 +10,19 @@
 <form class="search-form" action="/shops/search" method="get">
     @csrf
     <div class="search-form__item">
+        <span class="search-form__item-label">並び替え：</span>
+        <select onchange="submit(this.form)" class="search-form__item-select search-form__item-select--sort" name="sort">
+            <option disabled selected></option>
+            <option value="random" @if(request('sort')=="random") selected @endif>
+                ランダム
+            </option>
+            <option value="descending" @if(request('sort')=="descending") selected @endif>
+                評価が高い順
+            </option>
+            <option value="ascending" @if(request('sort')=="ascending") selected @endif>
+                評価が低い順
+            </option>
+        </select>
         <select onchange="submit(this.form)" class="search-form__item-select" name="area_id">
             <option value="" selected>All area</option>
             @foreach ($areas as $area)
@@ -35,15 +48,30 @@
 @section('content')
 <div class="shop-all__content">
     <div class="shop-all_inner">
+        <div class="search-information">検索情報：
+            @if(request('sort') == 'random')
+                "ランダム"
+            @elseif(request('sort') == 'descending')
+                "評価が高い順"
+            @elseif(request('sort') == 'ascending')
+                "評価が低い順"
+            @else
+                指定なし
+            @endif
+        </div>
         @foreach ($shops as $shop)
         <div class="card">
             <div class="card__img">
                 <img src="{{ asset($shop->image) }}">
             </div>
             <div class="card__content">
-                <h2 class="card__content-ttl">
-                    {{ $shop->name }}
-                </h2>
+                <div class="card__content-header">
+                    <h2 class="card__content-ttl">
+                        {{ $shop->name }}
+                    </h2>
+                    <span class="icon-star">★</span>
+                    <span class="{{ $shop->averageRating() === '投稿なし' ? 'average-rating__small' : 'average-rating' }}">{{ $shop->averageRating() }}</span>
+                </div>
                 <div class="card__content-tag">
                     <p class="card__content-tag-item">#{{ $shop->area->name }}</p>
                     <p class="card__content-tag-item">#{{ $shop->genre->name }}</p>
