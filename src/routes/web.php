@@ -9,6 +9,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ShopImportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\AdminRegisterController;
@@ -66,6 +67,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
         Route::post('/reviews/delete', [ReviewController::class, 'destroyForAdmin']);
+
+        Route::get('/shops/import', [ShopImportController::class, 'showImportForm'])->name('import.form');
+        Route::post('/shops/import', [ShopImportController::class, 'import'])->name('import.csv');
     });
 });
 
