@@ -75,15 +75,8 @@
                             @csrf
                             <button class="reservation-card__button" type="submit">QRコード</button>
                         </form>
-                        <!-- 来店後 -->
-                        @if ($reservation->isVisit())
-                            <form class="reservation-card__form--review" action="/review" method="get">
-                                @csrf
-                                <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
-                                <button class="reservation-card__button" type="submit">レビュー</button>
-                            </form>
                         <!-- 来店前 -->
-                        @else
+                        @if (!$reservation->isVisit())
                             <form class="reservation-card__form--edit" action="/edit" method="get">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $reservation->id }}">
