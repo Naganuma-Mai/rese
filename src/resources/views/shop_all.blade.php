@@ -7,40 +7,48 @@
 @endsection
 
 @section('form')
-<form class="search-form" action="/shops/search" method="get">
+<form action="/shops/search" method="get">
     @csrf
-    <div class="search-form__item">
-        <span class="search-form__item-label">並び替え：</span>
-        <select onchange="submit(this.form)" class="search-form__item-select search-form__item-select--sort" name="sort">
-            <option disabled selected></option>
-            <option value="random" @if(request('sort')=="random") selected @endif>
-                ランダム
-            </option>
-            <option value="descending" @if(request('sort')=="descending") selected @endif>
-                評価が高い順
-            </option>
-            <option value="ascending" @if(request('sort')=="ascending") selected @endif>
-                評価が低い順
-            </option>
-        </select>
-        <select onchange="submit(this.form)" class="search-form__item-select" name="area_id">
-            <option value="" selected>All area</option>
-            @foreach ($areas as $area)
-                <option value="{{ $area->id }}" @if( request('area_id')==$area->id ) selected @endif>
-                    {{ $area->name }}
-                </option>
-            @endforeach
-        </select>
-        <select onchange="submit(this.form)" class="search-form__item-select" name="genre_id">
-            <option value="" selected>All genre</option>
-            @foreach ($genres as $genre)
-                <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>
-                    {{ $genre->name }}
-                </option>
-            @endforeach
-        </select>
-        <img src="{{ asset('images/search.png') }}" class="search-form__item-img" alt="">
-        <input class="search-form__item-input" type="text" name="keyword" placeholder="Search ..." value="{{request('keyword')}}">
+    <div class="search-form">
+        <div class="search-form__select-group">
+            <div class="search-form__sort">
+                <label class="search-form__label" for="sort">並び替え：</label>
+                <select onchange="submit(this.form)" class="search-form__select search-form__select--sort" name="sort" id="sort">
+                    <option disabled selected></option>
+                    <option value="random" @if(request('sort')=="random") selected @endif>
+                        ランダム
+                    </option>
+                    <option value="descending" @if(request('sort')=="descending") selected @endif>
+                        評価が高い順
+                    </option>
+                    <option value="ascending" @if(request('sort')=="ascending") selected @endif>
+                        評価が低い順
+                    </option>
+                </select>
+            </div>
+            <div class="search-form__filter">
+                <select onchange="submit(this.form)" class="search-form__select" name="area_id">
+                    <option value="" selected>All area</option>
+                    @foreach ($areas as $area)
+                        <option value="{{ $area->id }}" @if( request('area_id')==$area->id ) selected @endif>
+                            {{ $area->name }}
+                        </option>
+                    @endforeach
+                </select>
+                <select onchange="submit(this.form)" class="search-form__select search-form__select--last" name="genre_id">
+                    <option value="" selected>All genre</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}" @if( request('genre_id')==$genre->id ) selected @endif>
+                            {{ $genre->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="search-form__search">
+            <img src="{{ asset('images/search.png') }}" class="search-form__img" alt="">
+            <input class="search-form__input" type="text" name="keyword" placeholder="Search ..." value="{{request('keyword')}}">
+        </div>
     </div>
 </form>
 @endsection

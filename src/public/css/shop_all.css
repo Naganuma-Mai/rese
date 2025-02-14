@@ -1,18 +1,26 @@
-.search-form__item {
+.search-form {
     background: #FFFFFF;
     border-radius: 5px;
-    width: 800px;
+    width: 670px;
     height: 47px;
     box-shadow: 3px 3px 3px #9f9f9f;
     margin-right: 64px;
     padding: 0 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.search-form__item-label {
+.search-form__select-group {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.search-form__label {
     font-size: 14px;
 }
 
-.search-form__item-select {
+.search-form__select {
     -webkit-appearance: none;
     appearance: none;
     background-image: url("../images/select.png");
@@ -21,25 +29,29 @@
     background-size: 14px 9px;
     /* 画像の位置 */
     background-position: right 8px center;
-    width: 92px;
+    width: 95px;
     height: 30px;
     border: none;
     border-right: 1px solid #EEEEEE;
     padding: 1px 5px;
 }
 
-.search-form__item-select--sort {
+.search-form__select--sort {
     width: 120px;
 }
 
-.search-form__item-img {
+.search-form__search {
+    width: auto;
+}
+
+.search-form__img {
     width: 17px;
     margin-left: 2px;
 }
 
-.search-form__item-input {
-    height: 100%;
-    width: 350px;
+.search-form__input {
+    height: 30px;
+    width: 230px;
     border: none;
     padding: 0 7px;
 }
@@ -146,20 +158,71 @@
 }
 
 /* レスポンシブ */
-@media screen and (max-width: 768px) {
-    .search-form__item {
-        width: 350px;
-        height: 40px;
+@media screen and (max-width: 960px) {
+    .search-form {
+        height: auto;
+        width: 420px;
+        padding: 5px 10px;
         margin: 30px auto 0;
-        padding: 0;
+        display: block;
     }
 
-    .search-form__item-select {
-        width: 80px;
+    .search-form__select-group {
+        justify-content: center;
     }
 
-    .search-form__item-input {
-        width: 150px;
+    .search-form__sort,
+    .search-form__filter {
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    .search-form__select {
+        margin: 3px 0;
+    }
+
+    .search-form__select--last {
+        border-right: none;
+    }
+
+    .search-form__search {
+        margin: 3px 0;
+    }
+
+    .search-form__input {
+        width: 370px;
         height: 38px;
+    }
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .search-form {
+        width: 275px;
+        padding: 0 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-form__select-group {
+        display: block;
+    }
+
+    .search-form__select {
+        width: 125px;
+        height: 38px;
+        border-right: none;
+    }
+
+    .search-form__select--sort {
+        width: 180px;
+    }
+
+    .search-form__select--last {
+        border-left: 1px solid #EEEEEE;
+    }
+
+    .search-form__input {
+        width: 230px;
     }
 }
