@@ -7,6 +7,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\ReviewRequest;
+use Illuminate\Support\Str;
 
 class ReviewController extends Controller
 {
@@ -37,10 +38,9 @@ class ReviewController extends Controller
 
         // ファイルがアップロードされている場合
         if ($request->hasFile('image')) {
-            // アップロードされたファイル名を取得
-            $file_name = $request->file('image')->getClientOriginalName();
-            // 取得したファイル名で保存
-            $request->file('image')->storeAs('public/images' , $file_name);
+            // **ユニークなファイル名を作成（例：20240209123456_abcdefg.jpg）**
+            $file_name = now()->format('YmdHis') . '_' . Str::random(7) . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/images', $file_name);
 
             $review['image'] = 'storage/images/' . $file_name;
         }

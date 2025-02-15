@@ -39,14 +39,18 @@
 }
 
 .shop-detail__img {
-    height: auto;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 6 / 4;
+    overflow: hidden;
 }
 
 .shop-detail__img img {
     width: 100%;
-    max-width: 640px;
-    height: auto;
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: cover;
+    /* 縦横比を維持しつつ、枠にフィット */
+    display: block;
 }
 
 .shop-detail__tag {
@@ -106,14 +110,18 @@
 }
 
 .review__img {
-    height: auto;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 6 / 4;
+    overflow: hidden;
 }
 
 .review__img img {
     width: 100%;
-    max-width: 640px;
-    height: auto;
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: cover;
+    /* 縦横比を維持しつつ、枠にフィット */
+    display: block;
 }
 
 .review-link {

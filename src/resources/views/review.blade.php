@@ -137,22 +137,38 @@ crossorigin="anonymous"></script>
     // **既存の画像URLを取得**
     const existingImageUrl = "{{ isset($review) && $review->image ? asset($review->image) : '' }}";
 
-    // **画像が sessionStorage にあるか、もしくは既存の画像があるか確認**
-    if (sessionStorage.getItem('review_image')) {
-        // **sessionStorage に保存されている場合は、それを表示**
-        preview.src = sessionStorage.getItem('review_image');
-        preview.style.display = 'block';
-        uploadMessage.style.display = 'none';
-    } else if (existingImageUrl) {
-        // **以前の画像がある場合は、それを表示**
-        preview.src = existingImageUrl;
-        preview.style.display = 'block';
-        uploadMessage.style.display = 'none';
-    } else {
-        // **何もない場合はアップロードメッセージを表示**
-        preview.style.display = 'none';
-        uploadMessage.style.display = 'block';
+    function restoreImageFromSession() {
+        if (sessionStorage.getItem('review_image')) {
+            const imageData = sessionStorage.getItem('review_image');
+            preview.src = imageData;
+            preview.style.display = 'block';
+            uploadMessage.style.display = 'none';
+
+            // **sessionStorage に保存されているファイル名を取得**
+            const filename = sessionStorage.getItem('review_filename') || "uploaded_image.png";
+
+            // **Base64データを File オブジェクトに変換し、input にセット**
+            fetch(imageData)
+                .then(res => res.blob())
+                .then(blob => {
+                    const file = new File([blob], filename, { type: blob.type });
+
+                    // **Fileオブジェクトを input[type="file"] にセット**
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    input.files = dataTransfer.files;
+                });
+        } else if (existingImageUrl) {
+            preview.src = existingImageUrl;
+            preview.style.display = 'block';
+            uploadMessage.style.display = 'none';
+        } else {
+            preview.style.display = 'none';
+            uploadMessage.style.display = 'block';
+        }
     }
+
+    restoreImageFromSession(); // **ページ読み込み時に画像を復元**
 
     function handleFiles(files) {
         if (files.length > 0) {
@@ -169,18 +185,20 @@ crossorigin="anonymous"></script>
                 preview.style.display = 'block';
                 uploadMessage.style.display = 'none';
 
-                // **drop-area のサイズに合わせる**
-                preview.style.width = dropArea.clientWidth + "px";
-                preview.style.height = dropArea.clientHeight + "px";
+                // **ユニークなファイル名を作成**
+                const timestamp = new Date().toISOString().replace(/[-:.TZ]/g, '');
+                const randomString = Math.random().toString(36).substring(2, 8);
+                const filename = `review_${timestamp}_${randomString}.${file.name.split('.').pop()}`;
 
-                // **inputにファイルをセット**
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(file);
-                input.files = dataTransfer.files;
-
-                // **sessionStorage に画像データを保存**
+                // **sessionStorage に画像データとファイル名を保存**
                 sessionStorage.setItem('review_image', e.target.result);
-                sessionStorage.setItem('review_shop_id', currentShopId); // **現在の shop_id も保存**
+                sessionStorage.setItem('review_filename', filename);
+                sessionStorage.setItem('review_shop_id', currentShopId);
+
+                // **Fileオブジェクトを input[type="file"] にセット**
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(new File([file], filename, { type: file.type }));
+                input.files = dataTransfer.files;
             };
             reader.readAsDataURL(file);
         }
@@ -215,4 +233,5 @@ crossorigin="anonymous"></script>
     });
 });
 </script>
+<script src="{{ asset('js/like.js') }}"></script>
 @endsection
