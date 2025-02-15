@@ -18,8 +18,9 @@ class ReviewsTableSeeder extends Seeder
         $param = [
             'user_id' => 1,
             'shop_id' => 1,
-            'point' => 5,
+            'star' => 5,
             'comment' => 'とてもおいしかったです！',
+            'image' => 'images/dummy/sushi.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ];
@@ -27,8 +28,9 @@ class ReviewsTableSeeder extends Seeder
         $param = [
             'user_id' => 2,
             'shop_id' => 2,
-            'point' => 4,
+            'star' => 4,
             'comment' => 'お店の雰囲気がよかったです。',
+            'image' => 'images/dummy/yakiniku.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ];
