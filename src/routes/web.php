@@ -65,6 +65,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/representative/done', [RepresentativeRegisterController::class, 'showDone']);
 
+        Route::get('/shops', [ShopController::class, 'index']);
+        Route::get('/shops/search', [ShopController::class, 'search']);
         Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
         Route::post('/reviews/delete', [ReviewController::class, 'destroyForAdmin']);
 

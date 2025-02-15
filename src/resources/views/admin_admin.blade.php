@@ -16,10 +16,6 @@
                 <button class="register__form--button" type="submit">店舗代表者登録</button>
             </form>
         </div>
-        <form class="logout__form" action="/admin/logout" method="post">
-            @csrf
-            <button class="logout__button">管理者ログアウト</button>
-        </form>
     </div>
 
     <div class="representative-table">

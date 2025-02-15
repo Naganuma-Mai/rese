@@ -58,22 +58,31 @@
 
 .shop-all__content {
     margin: 0 auto;
-    padding: 0 15px 30px;
+    padding: 10px 30px 30px;
     background: #EEEEEE;
     min-height: 89vh;
+}
+
+.shop-all__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin: 0 40px;
+}
+
+.search-information {
+    height: auto;
+}
+
+.shops-import__form--button {
+    width: 165px;
 }
 
 .shop-all_inner {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.search-information {
-    width: 85%;
-    height: 50px;
-    display: flex;
-    align-items: center;
 }
 
 .card {
@@ -140,13 +149,13 @@
     justify-content: space-between;
 }
 
+.shops-import__form--button,
 .card__content-button {
     background: #305DFF;
     color: #FFFFFF;
     border-radius: 5px;
     border: none;
     padding: 5px 14px;
-    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
     display: inline-block;
     font-size: 13px;
     cursor: pointer;
@@ -224,5 +233,20 @@
 
     .search-form__input {
         width: 230px;
+    }
+
+    .shop-all__content {
+        padding: 10px 20px 30px;
+    }
+
+    .shop-all__header {
+        display: block;
+        height: auto;
+        text-align: center;
+        margin: 0 0 10px;
+    }
+
+    .search-information {
+        margin-bottom: 10px;
     }
 }

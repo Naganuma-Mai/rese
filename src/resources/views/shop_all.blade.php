@@ -7,7 +7,7 @@
 @endsection
 
 @section('form')
-<form action="/shops/search" method="get">
+<form action="{{ Auth::guard('admin')->check() ? '/admin/shops/search' : '/shops/search' }}" method="get">
     @csrf
     <div class="search-form">
         <div class="search-form__select-group">
@@ -55,7 +55,7 @@
 
 @section('content')
 <div class="shop-all__content">
-    <div class="shop-all_inner">
+    <div class="shop-all__header">
         <div class="search-information">検索情報：
             @if(request('sort') == 'random')
                 "ランダム"
@@ -67,6 +67,17 @@
                 指定なし
             @endif
         </div>
+        <!-- 管理者としてログインしている場合 -->
+        @if (Auth::guard('admin')->check())
+        <div class="shops-import__form">
+            <form action="/admin/shops/import" method="get">
+                @csrf
+                <button class="shops-import__form--button" type="submit">店舗情報csvインポート</button>
+            </form>
+        </div>
+        @endif
+    </div>
+    <div class="shop-all_inner">
         @foreach ($shops as $shop)
         <div class="card">
             <div class="card__img">
@@ -85,14 +96,14 @@
                     <p class="card__content-tag-item">#{{ $shop->genre->name }}</p>
                 </div>
                 <div class="card__content-footer">
-                    <form class="card__content-form" action="/detail/{{ $shop->id }}" method="get">
+                    <form class="card__content-form" action="{{ Auth::guard('admin')->check() ? '/admin/detail/' . $shop->id : '/detail/' . $shop->id }}" method="get">
                         @csrf
                         <div class="form__item">
                             <button class="card__content-button" type="submit">詳しくみる</button>
                         </div>
                     </form>
-                    <!-- ログイン後 -->
-                    @if (Auth::check())
+                    <!-- ユーザーとしてログインしている場合 -->
+                    @if (Auth::check() && !Auth::guard('admin')->check() && !Auth::guard('representative')->check())
                         <!-- お気に入りにしていないお店 -->
                         @if (!Auth::user()->isLike($shop->id))
                             <a class="toggle_like" shop_id="{{ $shop->id }}" like_val="0">
@@ -104,7 +115,7 @@
                                 <img src="{{ asset('images/heart_red.png') }}" class="card__content-img" alt="">
                             </a>
                         @endif
-                    <!-- ログイン前 -->
+                    <!-- ユーザーとしてログインしていない場合 -->
                     @else
                         <a class="likes">
                             <img src="{{ asset('images/heart_gray.png') }}" class="card__content-img" alt="">

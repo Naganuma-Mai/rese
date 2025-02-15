@@ -24,8 +24,31 @@
                     Rese
                 </p>
                 <nav class="header-nav">
-                    <!-- ログイン後 -->
-                    @if (Auth::check())
+                    <!-- 管理者ログイン後のナビゲーション -->
+                    @if (Auth::guard('admin')->check())
+                    <ul id="menu" class="header-nav__list">
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/admin/shops" method="get">
+                                @csrf
+                                <button class="header-nav__button">飲食店一覧</button>
+                            </form>
+                        </li>
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/admin/logout" method="post">
+                                @csrf
+                                <button class="header-nav__button">管理者ログアウト</button>
+                            </form>
+                        </li>
+                        <li class="header-nav__item">
+                            <form class="header-nav__form" action="/admin/admin" method="get">
+                                @csrf
+                                <button class="header-nav__button">管理画面</button>
+                            </form>
+                        </li>
+                    </ul>
+
+                    <!-- ユーザーとしてログイン後のナビゲーション -->
+                    @elseif (Auth::check())
                     <ul id="menu" class="header-nav__list">
                         <li class="header-nav__item">
                             <form class="header-nav__form" action="/" method="get">

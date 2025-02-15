@@ -9,7 +9,7 @@
     <div class="shop-detail__inner">
         <div class="shop-detail__section">
             <div class="shop-detail__header">
-                <form class="shop-detail__form" action="/" method="get">
+                <form class="shop-detail__form" action="{{ Auth::guard('admin')->check() ? '/admin/shops' : '/'}}" method="get">
                     @csrf
                     <button class="shop-detail__button"><</button>
                 </form>
