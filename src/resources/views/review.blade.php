@@ -174,11 +174,6 @@ crossorigin="anonymous"></script>
         if (files.length > 0) {
             const file = files[0];
 
-            if (!file.type.startsWith('image/')) {
-                alert('画像ファイルのみアップロードできます');
-                return;
-            }
-
             const reader = new FileReader();
             reader.onload = function (e) {
                 preview.src = e.target.result;

@@ -30,10 +30,10 @@ class ReviewRequest extends FormRequest
 
         if (!$this->filled('review_id')) {
             // 新規作成時は画像を必須
-            $rules['image'] = ['required', 'image', 'mimes:jpeg,png'];
+            $rules['image'] = ['required', 'mimes:jpeg,png'];
         } else {
             // 更新時は画像を任意
-            $rules['image'] = ['nullable', 'image', 'mimes:jpeg,png'];
+            $rules['image'] = ['nullable', 'mimes:jpeg,png'];
         }
 
         return $rules;
@@ -48,7 +48,6 @@ class ReviewRequest extends FormRequest
             'comment.string' => '口コミを文字列で入力してください',
             'comment.max' => '口コミを400文字以内で入力してください',
             'image.required' => '画像を追加してください',
-            'image.image' => '画像ファイルを追加してください',
             'image.mimes' => '画像ファイルの拡張子はjpeg、pngとしてください'
         ];
     }
