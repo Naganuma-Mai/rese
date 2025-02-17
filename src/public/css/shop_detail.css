@@ -5,14 +5,13 @@
 }
 
 .shop-detail__inner {
-    display: flex;
-    justify-content: space-between;
     max-width: 1190px;
+    padding: 40px 0;
 }
 
-.shop-detail__section {
+.shop-detail__section,
+.review__content {
     max-width: 550px;
-    margin-top: 38px;
     margin-left: 50px;
     width: 42%;
 }
@@ -69,6 +68,10 @@
 .shop-detail__text-overview {
     font-size: 15px;
     margin: 10px 0;
+}
+
+.review__content {
+    margin-top: 80px;
 }
 
 .review-ttl {
@@ -261,20 +264,26 @@
     }
 
     .shop-detail__inner {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 
-    .shop-detail__section {
+    .shop-detail__section,
+    .review__content {
         min-width: 305px;
         padding: 0 5px;
         width: 80%;
         margin: 0 auto;
     }
 
+    .review__content {
+        order: 3;
+    }
+
     .reservation__form {
         min-width: 295px;
         height: 600px;
-        margin: 70px auto 0;
+        margin: 70px auto;
         position: static;
         width: 80%;
     }

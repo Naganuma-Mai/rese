@@ -29,6 +29,9 @@
                     {{ $shop->overview }}
                 </p>
             </div>
+        </div>
+
+        <div class="review__content">
             <!-- 管理者としてログインしている場合 -->
             @if (Auth::guard('admin')->check())
                 <h2 class="review-ttl">全ての口コミ情報</h2>
